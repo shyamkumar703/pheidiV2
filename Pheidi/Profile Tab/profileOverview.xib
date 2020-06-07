@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Proxima Nova Bold.otf">
+            <string>ProximaNova-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="profileOverview" customModule="Pheidi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="285"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U80-zu-GH8" customClass="MKRingProgressView">
+                    <rect key="frame" x="20" y="20" width="139" height="148.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="LaM-Cf-f02">
+                            <rect key="frame" x="35" y="41" width="69.5" height="66.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waH-gD-LWD">
+                                    <rect key="frame" x="0.0" y="0.0" width="69.5" height="47"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="30"/>
+                                    <color key="textColor" red="0.0" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q66-wf-s5R">
+                                    <rect key="frame" x="0.0" y="50" width="69.5" height="16.5"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
+                                    <color key="textColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="LaM-Cf-f02" firstAttribute="leading" secondItem="U80-zu-GH8" secondAttribute="leading" constant="35" id="ATX-pM-5ON"/>
+                        <constraint firstAttribute="trailing" secondItem="LaM-Cf-f02" secondAttribute="trailing" constant="34.5" id="FPM-VW-6c9"/>
+                        <constraint firstAttribute="bottom" secondItem="LaM-Cf-f02" secondAttribute="bottom" constant="41" id="gkt-UC-KCW"/>
+                        <constraint firstItem="LaM-Cf-f02" firstAttribute="top" secondItem="U80-zu-GH8" secondAttribute="top" constant="41" id="oT6-dq-Fxk"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                            <color key="value" red="0.0" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                            <color key="value" red="0.0" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="ringWidth">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOB-M4-2H6">
+                    <rect key="frame" x="244" y="20" width="150" height="150"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3v6-JW-3S8">
+                            <rect key="frame" x="0.0" y="41" width="150" height="68"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:32" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ4-93-MvP">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="30"/>
+                                    <color key="textColor" red="0.0" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3200M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeA-bE-i2r">
+                                    <rect key="frame" x="0.0" y="47" width="150" height="21"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
+                                    <color key="textColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="3v6-JW-3S8" secondAttribute="trailing" id="1yG-AA-CZ7"/>
+                        <constraint firstItem="3v6-JW-3S8" firstAttribute="top" secondItem="wOB-M4-2H6" secondAttribute="top" constant="41" id="TmZ-CY-fy7"/>
+                        <constraint firstItem="3v6-JW-3S8" firstAttribute="leading" secondItem="wOB-M4-2H6" secondAttribute="leading" id="fbG-U2-sdP"/>
+                        <constraint firstAttribute="bottom" secondItem="3v6-JW-3S8" secondAttribute="bottom" constant="41" id="tZA-Ly-bTM"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="yNV-c9-DY6">
+                    <rect key="frame" x="50" y="197" width="314" height="67.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Division 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCJ-A4-ADe">
+                            <rect key="frame" x="82" y="0.0" width="150.5" height="43"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="35"/>
+                            <color key="textColor" red="0.0" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVEL RECRUIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6i-C4-gb5">
+                            <rect key="frame" x="106" y="50" width="102.5" height="17.5"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
+                            <color key="textColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="yNV-c9-DY6" secondAttribute="bottom" constant="20.5" id="8ZO-Pf-dgv"/>
+                <constraint firstAttribute="bottom" secondItem="U80-zu-GH8" secondAttribute="bottom" constant="116.5" id="DN2-m4-UQK"/>
+                <constraint firstItem="yNV-c9-DY6" firstAttribute="top" secondItem="U80-zu-GH8" secondAttribute="bottom" constant="28.5" id="H8d-dq-s5w"/>
+                <constraint firstItem="yNV-c9-DY6" firstAttribute="top" secondItem="wOB-M4-2H6" secondAttribute="bottom" constant="27" id="b1i-0q-4Nf"/>
+                <constraint firstItem="wOB-M4-2H6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="244" id="b4G-yV-zY8"/>
+                <constraint firstItem="U80-zu-GH8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="bPQ-9I-6Bl"/>
+                <constraint firstItem="wOB-M4-2H6" firstAttribute="leading" secondItem="U80-zu-GH8" secondAttribute="trailing" constant="85" id="fIS-AU-7Sh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wOB-M4-2H6" secondAttribute="trailing" constant="20" id="fNO-NN-ygx"/>
+                <constraint firstItem="yNV-c9-DY6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="lDw-yE-7xk"/>
+                <constraint firstItem="wOB-M4-2H6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="lQr-IN-znz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yNV-c9-DY6" secondAttribute="trailing" constant="50" id="r1j-fV-zE7"/>
+                <constraint firstItem="U80-zu-GH8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="uPK-PC-fdb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="bestEventLabel" destination="FeA-bE-i2r" id="JHT-cL-BQY"/>
+                <outlet property="bestEventMark" destination="sQ4-93-MvP" id="iXn-l6-b2F"/>
+                <outlet property="divisionLabel" destination="bCJ-A4-ADe" id="Flg-HZ-s9I"/>
+                <outlet property="gpaLabel" destination="waH-gD-LWD" id="QJu-83-rho"/>
+                <outlet property="progressRing" destination="U80-zu-GH8" id="Hzq-fm-Dj8"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="82.03125"/>
+        </view>
+    </objects>
+</document>

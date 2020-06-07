@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="uniExtraInfoCell" customModule="Pheidi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRq-Nj-dxG">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJB-hu-jiR">
+                            <rect key="frame" x="20.5" y="14" width="373" height="152"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="152" id="IOE-IM-Osc"/>
+                                <constraint firstAttribute="width" constant="373" id="o0B-8G-xVM"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="LJB-hu-jiR" firstAttribute="centerY" secondItem="FRq-Nj-dxG" secondAttribute="centerY" id="RHy-wK-emy"/>
+                        <constraint firstItem="LJB-hu-jiR" firstAttribute="centerX" secondItem="FRq-Nj-dxG" secondAttribute="centerX" id="zzE-BG-fcQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="FRq-Nj-dxG" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="1fZ-2w-Wil"/>
+                <constraint firstItem="FRq-Nj-dxG" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="D3X-Ie-5t0"/>
+                <constraint firstItem="FRq-Nj-dxG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="F8h-uA-wF6"/>
+                <constraint firstItem="FRq-Nj-dxG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YSI-v4-mAj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="cellView" destination="LJB-hu-jiR" id="KeX-Zw-fC1"/>
+                <outlet property="gradientView" destination="FRq-Nj-dxG" id="k1x-r7-29h"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="152.67857142857142"/>
+        </view>
+    </objects>
+</document>
