@@ -1,0 +1,9 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BulletinBoard" "${PODS_CONFIGURATION_BUILD_DIR}/IHKeyboardAvoiding" "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift" "${PODS_CONFIGURATION_BUILD_DIR}/LinearProgressView" "${PODS_CONFIGURATION_BUILD_DIR}/MKRingProgressView" "${PODS_CONFIGURATION_BUILD_DIR}/SkyFloatingLabelTextField" "${PODS_CONFIGURATION_BUILD_DIR}/StatusAlert" "${PODS_CONFIGURATION_BUILD_DIR}/iOSDropDown"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BulletinBoard/BLTNBoard.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/LinearProgressView/LinearProgressView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MKRingProgressView/MKRingProgressView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/StatusAlert/StatusAlert.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/iOSDropDown/iOSDropDown.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "BLTNBoard" -framework "CoreGraphics" -framework "Foundation" -framework "IHKeyboardAvoiding" -framework "IQKeyboardManagerSwift" -framework "LinearProgressView" -framework "MKRingProgressView" -framework "QuartzCore" -framework "SkyFloatingLabelTextField" -framework "StatusAlert" -framework "UIKit" -framework "iOSDropDown"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES
