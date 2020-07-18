@@ -9,6 +9,7 @@
 import UIKit
 import IHKeyboardAvoiding
 import BLTNBoard
+import Mixpanel
 
 class matchesTableViewController: UITableViewController, UITabBarControllerDelegate {
     var filteredMatches: [University] = []
@@ -367,6 +368,7 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
         } else {
             currUni = matchesArr[indexPath.item]
         }
+        Mixpanel.mainInstance().track(event: "Match Selected", properties: ["school": currUni!.name])
         performSegue(withIdentifier: "showUni", sender: self)
     }
     

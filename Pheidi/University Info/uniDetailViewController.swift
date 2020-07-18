@@ -9,6 +9,7 @@
 import UIKit
 import StatusAlert
 import MessageUI
+import Mixpanel
 
 class uniDetailViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
@@ -34,6 +35,8 @@ class uniDetailViewController: UIViewController, MFMailComposeViewControllerDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         if currUni!.city != "nan" && currUni!.state != "nan" {
             cityStateLabel.text = "\(currUni!.city), \(currUni!.state)"
         } else {
@@ -146,6 +149,8 @@ class uniDetailViewController: UIViewController, MFMailComposeViewControllerDele
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
             
+            Mixpanel.mainInstance().track(event: "School Starred", properties: ["school": String(currUni!.name)])
+            
             let statusAlert = StatusAlert()
             statusAlert.title = "Starred"
             statusAlert.message = String(currUni!.name) + " has been starred"
@@ -213,7 +218,12 @@ class uniDetailViewController: UIViewController, MFMailComposeViewControllerDele
     }
     
     @IBAction func sendEmail(_ sender: Any) {
-        sendEmail()
+        Mixpanel.mainInstance().track(event: "Send Email", properties: ["school": currUni!.name])
+        if UserDefaults.standard.bool(forKey: "pro") == true {
+            sendEmail()
+        } else {
+            performSegue(withIdentifier: "toFivestar", sender: self)
+        }
     }
     
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)

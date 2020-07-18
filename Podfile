@@ -13,6 +13,7 @@ target 'Pheidi' do
   pod 'IQKeyboardManagerSwift'
   pod 'BulletinBoard'
   pod 'Mixpanel-swift'
+  pod 'SwiftEntryKit', '1.2.3'
   # Pods for Pheidi
 
   target 'PheidiTests' do

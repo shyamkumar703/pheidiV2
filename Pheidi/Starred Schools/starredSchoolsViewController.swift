@@ -8,6 +8,7 @@
 
 import UIKit
 import StatusAlert
+import Mixpanel
 
 class starredSchoolsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITabBarControllerDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,6 +72,8 @@ class starredSchoolsViewController: UIViewController, UICollectionViewDelegate, 
             statusAlert.image = UIImage(named: "delete")
             statusAlert.appearance.blurStyle = .dark
             statusAlert.showInKeyWindow()
+            
+            Mixpanel.mainInstance().track(event: "School Unstarred", properties: ["school": String(srcArr[tag!].name)])
             
             srcArr.remove(at: tag!)
             

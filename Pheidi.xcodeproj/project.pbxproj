@@ -47,6 +47,7 @@
 		0144D3A824738A5A00DC043F /* overviewStats.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0144D3A724738A5A00DC043F /* overviewStats.xib */; };
 		0144D3AA24738D4400DC043F /* overviewStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0144D3A924738D4400DC043F /* overviewStats.swift */; };
 		0144D3AC2474706700DC043F /* starredUniCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0144D3AB2474706700DC043F /* starredUniCollectionViewCell.swift */; };
+		016029D124C39DE800F15F8A /* iapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016029D024C39DE800F15F8A /* iapViewController.swift */; };
 		016BC81F2472774F009EAD7E /* selectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BC81E2472774F009EAD7E /* selectViewController.swift */; };
 		016BC8212472778E009EAD7E /* selectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BC8202472778E009EAD7E /* selectCollectionViewCell.swift */; };
 		01879B1D2484BFD900C1F8FE /* newFullData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 01879B1C2484BFD900C1F8FE /* newFullData.csv */; };
@@ -167,6 +168,7 @@
 		0144D3A724738A5A00DC043F /* overviewStats.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = overviewStats.xib; sourceTree = "<group>"; };
 		0144D3A924738D4400DC043F /* overviewStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = overviewStats.swift; sourceTree = "<group>"; };
 		0144D3AB2474706700DC043F /* starredUniCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starredUniCollectionViewCell.swift; sourceTree = "<group>"; };
+		016029D024C39DE800F15F8A /* iapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iapViewController.swift; sourceTree = "<group>"; };
 		016BC81E2472774F009EAD7E /* selectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectViewController.swift; sourceTree = "<group>"; };
 		016BC8202472778E009EAD7E /* selectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectCollectionViewCell.swift; sourceTree = "<group>"; };
 		01879B1C2484BFD900C1F8FE /* newFullData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = newFullData.csv; sourceTree = "<group>"; };
@@ -330,6 +332,14 @@
 			path = "Second Profile";
 			sourceTree = "<group>";
 		};
+		016029D224C39DEF00F15F8A /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				016029D024C39DE800F15F8A /* iapViewController.swift */,
+			);
+			path = IAP;
+			sourceTree = "<group>";
+		};
 		016BC8222473362A009EAD7E /* Input Times */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +433,7 @@
 		01F71F7E246A4FCD007CEFAA /* Pheidi */ = {
 			isa = PBXGroup;
 			children = (
+				016029D224C39DEF00F15F8A /* IAP */,
 				0196F516247B8F330007BAA8 /* See All */,
 				0138D2FE247B75760058CDA0 /* Matches2 */,
 				012BC964247A27340035F068 /* Onboard */,
@@ -550,6 +561,8 @@
 			dependencies = (
 			);
 			name = Pheidi;
+			packageProductDependencies = (
+			);
 			productName = Pheidi;
 			productReference = 01F71F7C246A4FCD007CEFAA /* Pheidi.app */;
 			productType = "com.apple.product-type.application";
@@ -624,6 +637,8 @@
 				Base,
 			);
 			mainGroup = 01F71F73246A4FCD007CEFAA;
+			packageReferences = (
+			);
 			productRefGroup = 01F71F7D246A4FCD007CEFAA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -810,6 +825,7 @@
 				010958982475BC350014B94E /* rCollectionViewCell.swift in Sources */,
 				01F71FD2246DBA17007CEFAA /* uniCell.swift in Sources */,
 				012BC95A247863BB0035F068 /* PersistenceService.swift in Sources */,
+				016029D124C39DE800F15F8A /* iapViewController.swift in Sources */,
 				01F71FD6246DC61D007CEFAA /* browseTableViewCell.swift in Sources */,
 				01F71FC7246BC91C007CEFAA /* uniViewController.swift in Sources */,
 				01F71F80246A4FCD007CEFAA /* AppDelegate.swift in Sources */,
@@ -1011,7 +1027,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shyam-Kumar.teamConnect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1032,7 +1048,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shyam-Kumar.teamConnect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
