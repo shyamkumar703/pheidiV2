@@ -4,6 +4,9 @@ PODS:
   - iOSDropDown (0.3.4)
   - IQKeyboardManagerSwift (6.5.5)
   - LinearProgressView (2.0.1)
+  - Mixpanel-swift (2.7.6):
+    - Mixpanel-swift/Complete (= 2.7.6)
+  - Mixpanel-swift/Complete (2.7.6)
   - MKRingProgressView (2.2.3)
   - SkyFloatingLabelTextField (3.8.0)
   - StatusAlert (1.1.1)
@@ -14,6 +17,7 @@ DEPENDENCIES:
   - iOSDropDown
   - IQKeyboardManagerSwift
   - LinearProgressView (~> 2.0)
+  - Mixpanel-swift
   - MKRingProgressView
   - SkyFloatingLabelTextField (~> 3.0)
   - StatusAlert (~> 1.1.1)
@@ -25,6 +29,7 @@ SPEC REPOS:
     - iOSDropDown
     - IQKeyboardManagerSwift
     - LinearProgressView
+    - Mixpanel-swift
     - MKRingProgressView
     - SkyFloatingLabelTextField
     - StatusAlert
@@ -35,10 +40,11 @@ SPEC CHECKSUMS:
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   LinearProgressView: 353d4d45dc599b83cc4b43f14e6c0336aa6f3834
+  Mixpanel-swift: 4950d554c4b28d2f594556f3641499ff495b6b5f
   MKRingProgressView: 404b3157e7a533ab8668d29ec20042c35d12ca1d
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
   StatusAlert: a18ec3c33d36a06d4479c1f2b15ffac67aaf7ab1
 
-PODFILE CHECKSUM: 5285fb817a907360b82600f004e055d46ff5e267
+PODFILE CHECKSUM: ec95c92fd642a0b8194d1495376599471e178e17
 
 COCOAPODS: 1.9.1

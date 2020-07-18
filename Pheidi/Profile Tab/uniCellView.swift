@@ -20,6 +20,9 @@ class uniCellView: UICollectionViewCell {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var focusLabel: UILabel!
     
+
+
+    
     func cornerRad() {
         let alphaColor = UIColor(red:0.00, green:0.08, blue:0.06, alpha:1.0)
         let alphaColor2 = UIColor(red:0.84, green:0.60, blue:0.64, alpha:1.0)

@@ -12,6 +12,7 @@ target 'Pheidi' do
   pod 'IHKeyboardAvoiding'
   pod 'IQKeyboardManagerSwift'
   pod 'BulletinBoard'
+  pod 'Mixpanel-swift'
   # Pods for Pheidi
 
   target 'PheidiTests' do

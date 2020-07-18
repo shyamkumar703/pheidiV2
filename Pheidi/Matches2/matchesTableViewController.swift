@@ -259,6 +259,7 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
         }
     }
     
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
     }
@@ -305,6 +306,7 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
             cellView!.match.text = currUni!.match + "%"
             
             cell.view.addSubview(cellView!)
+            
             return cell
         }
 
