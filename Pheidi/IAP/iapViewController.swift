@@ -11,22 +11,21 @@ import StoreKit
 import StatusAlert
 
 class iapViewController: UIViewController {
-    @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let alphaColor = UIColor(red:0.00, green:0.70, blue:0.56, alpha:1.0)
-        pheidiColors.addGradientColorToView(view: self.view, color: alphaColor)
+//        let alphaColor = UIColor(red:0.00, green:0.70, blue:0.56, alpha:1.0)
+//        pheidiColors.addGradientColorToView(view: self.view, color: alphaColor)
         
         joinButton.layer.cornerRadius = 15
         joinButton.layer.borderColor = pheidiColors.pheidiTeal.cgColor
         joinButton.layer.borderWidth = 1
         
-        restoreButton.layer.cornerRadius = 10
-        restoreButton.layer.borderColor = UIColor.black.cgColor
-        restoreButton.layer.borderWidth = 1
+//        restoreButton.layer.cornerRadius = 10
+//        restoreButton.layer.borderColor = UIColor.black.cgColor
+//        restoreButton.layer.borderWidth = 1
         
         SKPaymentQueue.default().add(self)
         // Do any additional setup after loading the view.

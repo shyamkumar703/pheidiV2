@@ -19,8 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         Mixpanel.initialize(token: "03bf5ceb75694a0d98b42679eece733d")
         
+        if !UserDefaults.standard.bool(forKey: "hasLaunched") {
+            if isKeyPresentInUserDefaults(key: "tutorial") {
+                UserDefaults.standard.set(true, forKey: "pro")
+            }
+            UserDefaults.standard.set(true, forKey: "hasLaunched")
+        }
+        
         
         return true
+    }
+    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
     }
 
     // MARK: UISceneSession Lifecycle
