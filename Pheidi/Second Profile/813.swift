@@ -80,6 +80,8 @@ class secondProfileViewController: UIViewController, UICollectionViewDelegate, U
     @IBOutlet weak var eventGroupLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
+
+    @IBOutlet weak var legalButton: UIButton!
     @IBOutlet weak var overviewButton: UIButton!
     @IBOutlet weak var athleticButton: UIButton!
     @IBOutlet weak var academicButton: UIButton!
@@ -151,6 +153,10 @@ class secondProfileViewController: UIViewController, UICollectionViewDelegate, U
         tutorial.layer.cornerRadius = 10
         tutorial.layer.borderColor = UIColor.black.cgColor
         tutorial.layer.borderWidth = 1.0
+        
+        legalButton.layer.cornerRadius = 10
+        legalButton.layer.borderColor = UIColor.black.cgColor
+        legalButton.layer.borderWidth = 1.0
         
         
         

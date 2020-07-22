@@ -60,6 +60,8 @@
 		01AF03922474F4EB00B21156 /* topOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01AF03912474F4EB00B21156 /* topOverview.xib */; };
 		01AF03942474F9B800B21156 /* topOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF03932474F9B800B21156 /* topOverview.swift */; };
 		01AF03962474F9E500B21156 /* uniDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF03952474F9E500B21156 /* uniDetailViewController.swift */; };
+		01B7ADA724C7E15B00CAEA51 /* legalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B7ADA624C7E15B00CAEA51 /* legalViewController.swift */; };
+		01B7ADA924C7EC5000CAEA51 /* legalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B7ADA824C7EC5000CAEA51 /* legalTableViewCell.swift */; };
 		01BD181B24772D87003A806C /* starredSchool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BD181A24772D87003A806C /* starredSchool.swift */; };
 		01BD181D24774E12003A806C /* starredUniversityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BD181C24774E12003A806C /* starredUniversityCollectionViewCell.swift */; };
 		01BD18202477A3BD003A806C /* settingsCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BD181F2477A3BD003A806C /* settingsCard.xib */; };
@@ -180,6 +182,8 @@
 		01AF03912474F4EB00B21156 /* topOverview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = topOverview.xib; sourceTree = "<group>"; };
 		01AF03932474F9B800B21156 /* topOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topOverview.swift; sourceTree = "<group>"; };
 		01AF03952474F9E500B21156 /* uniDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uniDetailViewController.swift; sourceTree = "<group>"; };
+		01B7ADA624C7E15B00CAEA51 /* legalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = legalViewController.swift; sourceTree = "<group>"; };
+		01B7ADA824C7EC5000CAEA51 /* legalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = legalTableViewCell.swift; sourceTree = "<group>"; };
 		01BD181A24772D87003A806C /* starredSchool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starredSchool.swift; sourceTree = "<group>"; };
 		01BD181C24774E12003A806C /* starredUniversityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starredUniversityCollectionViewCell.swift; sourceTree = "<group>"; };
 		01BD181F2477A3BD003A806C /* settingsCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = settingsCard.xib; sourceTree = "<group>"; };
@@ -370,6 +374,15 @@
 			path = "University Info";
 			sourceTree = "<group>";
 		};
+		01B7ADA524C7E12B00CAEA51 /* Legal */ = {
+			isa = PBXGroup;
+			children = (
+				01B7ADA624C7E15B00CAEA51 /* legalViewController.swift */,
+				01B7ADA824C7EC5000CAEA51 /* legalTableViewCell.swift */,
+			);
+			path = Legal;
+			sourceTree = "<group>";
+		};
 		01BD181E2477A3AA003A806C /* Settings Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +446,7 @@
 		01F71F7E246A4FCD007CEFAA /* Pheidi */ = {
 			isa = PBXGroup;
 			children = (
+				01B7ADA524C7E12B00CAEA51 /* Legal */,
 				016029D224C39DEF00F15F8A /* IAP */,
 				0196F516247B8F330007BAA8 /* See All */,
 				0138D2FE247B75760058CDA0 /* Matches2 */,
@@ -796,10 +810,12 @@
 				01D876BD247C6C1B003B907B /* University.swift in Sources */,
 				012BC972247A4B1C0035F068 /* addEventsViewController.swift in Sources */,
 				01F71FD4246DC5C1007CEFAA /* browseViewController.swift in Sources */,
+				01B7ADA724C7E15B00CAEA51 /* legalViewController.swift in Sources */,
 				01BD181D24774E12003A806C /* starredUniversityCollectionViewCell.swift in Sources */,
 				01AF03942474F9B800B21156 /* topOverview.swift in Sources */,
 				01BD18262477A6A9003A806C /* settingsCollectionViewCell.swift in Sources */,
 				01F71FB6246A5041007CEFAA /* Colors.swift in Sources */,
+				01B7ADA924C7EC5000CAEA51 /* legalTableViewCell.swift in Sources */,
 				01F71FD8246DC92B007CEFAA /* browseCollectionViewCell.swift in Sources */,
 				0144D3AA24738D4400DC043F /* overviewStats.swift in Sources */,
 				011AEE9124771ABE008E93DB /* starredSchoolsViewController.swift in Sources */,
