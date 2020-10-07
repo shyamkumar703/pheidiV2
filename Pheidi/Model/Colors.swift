@@ -11,6 +11,7 @@ import UIKit
 
 
 var matchesArr: [University] = []
+var smallMatchesArr: [University] = []
 var distanceRankings: [University] = []
 var sprintRankings: [University] = []
 var jumpsRankings: [University] = []
@@ -868,6 +869,8 @@ public class University {
         }
         user.bestEventMark = bestMark
         user.bestEventString = bestEvent
+        
+        smallMatchesArr = Array(matchesArr.prefix(10))
     }
     
     
@@ -1227,5 +1230,7 @@ public class University {
         }
         user.bestEventMark = bestMark
         user.bestEventString = bestEvent
+        
+        smallMatchesArr = Array(matchesArr.prefix(10))
     }
 }

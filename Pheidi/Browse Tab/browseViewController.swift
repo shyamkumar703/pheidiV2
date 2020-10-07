@@ -104,9 +104,14 @@ class browseViewController: UIViewController, UITableViewDataSource, UITableView
     
     @objc func onDidReceiveSegueRequest(_ notification: NSNotification) {
         if let tagDict = notification.userInfo as? [String: Any] {
-            currTableTitle = tagDict["title"] as? String
-            srcArray = tagDict["arr"] as? [University]
-            performSegue(withIdentifier: "seeAll", sender: self)
+            if UserDefaults.standard.bool(forKey: "pro") {
+                currTableTitle = tagDict["title"] as? String
+                srcArray = tagDict["arr"] as? [University]
+                performSegue(withIdentifier: "seeAll", sender: self)
+            } else {
+                //SHOW PHEIDI PRO
+                performSegue(withIdentifier: "toFivestar", sender: self)
+            }
         }
     }
     

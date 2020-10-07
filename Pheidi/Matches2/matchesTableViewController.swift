@@ -14,6 +14,7 @@ import Mixpanel
 class matchesTableViewController: UITableViewController, UITabBarControllerDelegate {
     var filteredMatches: [University] = []
     var currUni: University? = nil
+    var currArr: [University] = []
     let searchController = UISearchController(searchResultsController: nil)
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
@@ -33,10 +34,18 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
         return BLTNItemManager(rootItem: rootItem)
     }()
     
+    lazy var pheidiProManager: BLTNItemManager = {
+        let rootItem: BLTNPageItem = generateProTut()
+        return BLTNItemManager(rootItem: rootItem)
+    }()
+    
+    var showedPheidiPro: Bool = false
+    
     let scopeArray = ["All", "D1", "D2", "D3", "NAIA"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        addProButton()
         self.tabBarController?.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveReloadRequest(_:)), name: Notification.Name("Reload Requested"), object: nil)
         
@@ -69,6 +78,12 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
         searchController.searchBar.showsScopeBar = true
         navigationItem.hidesSearchBarWhenScrolling = false
         
+        if UserDefaults.standard.bool(forKey: "pro") {
+            currArr = matchesArr
+        } else {
+            currArr = smallMatchesArr
+        }
+        
         
         var isSearchBarEmpty: Bool {
           return searchController.searchBar.text?.isEmpty ?? true
@@ -77,7 +92,7 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        matchesArr = matchesArr.sorted(by: {
+        currArr = currArr.sorted(by: {
             if Int($0.match) != Int($1.match) {
                 return Int($0.match)! < Int($1.match)!
             } else if Int($0.match) == Int($1.match) && Int($0.match) == 100 {
@@ -93,6 +108,29 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func generateProTut() -> BLTNPageItem {
+        let page = BLTNPageItem(title: "Pheidi Pro")
+        page.appearance.titleTextColor = pheidiColors.pheidiTeal
+        page.appearance.titleFontDescriptor = UIFontDescriptor(fontAttributes: [.name: "ProximaNovaA-Bold"])
+        page.appearance.descriptionFontDescriptor = UIFontDescriptor(fontAttributes: [.name : "ProximaNovaA-Light"])
+        page.descriptionText = "Get Pheidi Pro to see all \(matchesArr.count) of your matches!"
+        page.actionButtonTitle = "LET'S DO IT!"
+        page.appearance.descriptionTextColor = .white
+        page.appearance.actionButtonBorderColor = pheidiColors.pheidiTeal
+        page.appearance.actionButtonColor = pheidiColors.pheidiTeal
+        page.appearance.actionButtonTitleColor = .black
+        
+        page.actionHandler = {(item: BLTNActionItem) in
+            //SHOW PHEIDI PRO
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+            item.manager?.dismissBulletin()
+            self.performSegue(withIdentifier: "showFivestar", sender: self)
+        }
+        
+        return page
     }
     
     func generateMatchTut()  -> BLTNPageItem {
@@ -224,13 +262,13 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
     }
     
     @objc func onDidReceiveReloadRequest(_ notification: NSNotification) {
-        matchesArr = []
+        currArr = []
         if user.gender == "Female" {
             University.loadMatchesFemale()
         } else {
             University.loadMatchesMale()
         }
-        matchesArr = matchesArr.sorted(by: {
+        currArr = currArr.sorted(by: {
             if Int($0.match) != Int($1.match) {
                 return Int($0.match)! < Int($1.match)!
             } else if Int($0.match) == Int($1.match) && Int($0.match) == 100 {
@@ -256,7 +294,7 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
             return filteredMatches.count
         } else {
             //return uniList.count
-            return matchesArr.count
+            return currArr.count
         }
     }
     
@@ -273,7 +311,7 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
                 currUni = filteredMatches[indexPath.item]
             } else {
                 //currUni = uniList[indexPath.item]
-                currUni = matchesArr[indexPath.item]
+                currUni = currArr[indexPath.item]
             }
             for subview in cell.view.subviews {
                 subview.removeFromSuperview()
@@ -315,14 +353,14 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
     
     func filterContentForSearchText(_ text: String, category: String) {
 //        filteredMatches = []
-//        for uni in matchesArr {
+//        for uni in currArr {
 //            if uni.name.contains(text) {
 //                filteredMatches.append(uni)
 //            }
 //        }
 //        tableView.reloadData()
         filteredMatches = []
-        filteredMatches = matchesArr.filter { (uni: University) -> Bool in
+        filteredMatches = currArr.filter { (uni: University) -> Bool in
           //let doesCategoryMatch = category == .all || candy.category == category
             var categoryMatch: Bool = false
             switch(category) {
@@ -365,7 +403,7 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
         if isFiltering {
             currUni = filteredMatches[indexPath.item]
         } else {
-            currUni = matchesArr[indexPath.item]
+            currUni = currArr[indexPath.item]
         }
         Mixpanel.mainInstance().track(event: "Match Selected", properties: ["school": currUni!.name])
         performSegue(withIdentifier: "showUni", sender: self)
@@ -373,7 +411,12 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.delegate = self
-        matchesArr = matchesArr.sorted(by: {
+        if UserDefaults.standard.bool(forKey: "pro") {
+            currArr = matchesArr
+        } else {
+            currArr = smallMatchesArr
+        }
+        currArr = currArr.sorted(by: {
             if Int($0.match) != Int($1.match) {
                 return Int($0.match)! < Int($1.match)!
             } else if Int($0.match) == Int($1.match) && Int($0.match) == 100 {
@@ -401,6 +444,15 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
 
     @objc func keyBoardWillHide(notification: NSNotification) {
         self.tableView.contentInset = UIEdgeInsets.zero
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == currArr.count && !showedPheidiPro && !UserDefaults.standard.bool(forKey: "pro") {
+            pheidiProManager.backgroundColor = .black
+            pheidiProManager.backgroundViewStyle = .blurredLight
+            pheidiProManager.showBulletin(above: self)
+            showedPheidiPro = true
+        }
     }
 
     /*

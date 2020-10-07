@@ -70,6 +70,7 @@
                     <navigationItem key="navigationItem" id="DZC-Ud-7zV"/>
                     <connections>
                         <segue destination="l25-ge-UyM" kind="presentation" identifier="showUni" modalPresentationStyle="fullScreen" id="6SY-EC-UJj"/>
+                        <segue destination="WCy-4o-tLa" kind="presentation" identifier="showFivestar" modalPresentationStyle="fullScreen" id="Iz4-om-HMa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqN-VV-csZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1961,7 +1962,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mtk-al-fBl">
-                                                    <rect key="frame" x="20" y="48.666666666666671" width="394" height="160.33333333333331"/>
+                                                    <rect key="frame" x="20" y="48.666666666666671" width="394" height="160.66666666666663"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="160.5" id="Ws3-j4-FLJ"/>
@@ -2115,7 +2116,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PwL-Db-CV3">
-                                                    <rect key="frame" x="322" y="22" width="72" height="18"/>
+                                                    <rect key="frame" x="322" y="22.333333333333332" width="72" height="17.999999999999996"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="Y61-0G-PAV"/>
                                                         <constraint firstAttribute="height" constant="18" id="tuU-cz-tNU"/>
@@ -2169,6 +2170,7 @@
                         <outlet property="browseTableView" destination="m6i-Me-I98" id="Mrz-k2-Uob"/>
                         <segue destination="X4h-lo-z87" kind="show" identifier="seeAll" id="uIH-Ib-GwA"/>
                         <segue destination="l25-ge-UyM" kind="presentation" identifier="toUniProfile" modalPresentationStyle="fullScreen" id="Iih-vX-HCT"/>
+                        <segue destination="WCy-4o-tLa" kind="presentation" identifier="toFivestar" modalPresentationStyle="fullScreen" id="5iu-43-0Tt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhb-fW-Ijv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2486,7 +2488,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="VMd-c1-qoj"/>
-        <segue reference="ZDh-BF-EAw"/>
+        <segue reference="Iz4-om-HMa"/>
+        <segue reference="6SY-EC-UJj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="D1_1.5" width="61" height="60"/>
@@ -2498,7 +2501,7 @@
         <image name="fiveStarLogo" width="96" height="96"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="mail" width="540" height="462"/>
+        <image name="mail" width="100" height="100"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>

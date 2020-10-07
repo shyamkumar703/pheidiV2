@@ -18,15 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         Mixpanel.initialize(token: "03bf5ceb75694a0d98b42679eece733d")
-        
-        if !UserDefaults.standard.bool(forKey: "hasLaunched") {
-            if isKeyPresentInUserDefaults(key: "tutorial") {
-                UserDefaults.standard.set(true, forKey: "pro")
-            }
-            UserDefaults.standard.set(true, forKey: "hasLaunched")
-        }
-        
-        
+
         return true
     }
     

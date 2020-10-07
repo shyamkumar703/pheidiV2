@@ -219,11 +219,7 @@ class uniDetailViewController: UIViewController, MFMailComposeViewControllerDele
     
     @IBAction func sendEmail(_ sender: Any) {
         Mixpanel.mainInstance().track(event: "Send Email", properties: ["school": currUni!.name])
-        if UserDefaults.standard.bool(forKey: "pro") == true {
-            sendEmail()
-        } else {
-            performSegue(withIdentifier: "toFivestar", sender: self)
-        }
+        sendEmail()
     }
     
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
