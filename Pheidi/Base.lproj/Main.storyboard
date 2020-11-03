@@ -32,6 +32,32 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sEV-jR-QUV"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="nYB-tz-S3I">
+                            <rect key="frame" x="0.0" y="236" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9M0-7P-1Ux">
+                                    <rect key="frame" x="90.666666666666686" y="5" width="233" height="34"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="34" id="9Of-9L-Bn9"/>
+                                        <constraint firstAttribute="width" constant="233" id="wam-IG-h7X"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="UNLOCK ALL 1051 MATCHES!">
+                                        <color key="titleColor" red="0.0" green="1" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="segueToPheidiPro:" destination="NFN-hO-mJ6" eventType="touchUpInside" id="JUc-nr-Ddq"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="9M0-7P-1Ux" firstAttribute="centerX" secondItem="nYB-tz-S3I" secondAttribute="centerX" id="ITZ-o8-YSZ"/>
+                                <constraint firstItem="9M0-7P-1Ux" firstAttribute="centerY" secondItem="nYB-tz-S3I" secondAttribute="centerY" id="uhG-uc-xhs"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="uni" id="u2v-2d-3mC" customClass="matchTableViewCell" customModule="Pheidi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="180"/>
@@ -69,6 +95,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="DZC-Ud-7zV"/>
                     <connections>
+                        <outlet property="pheidiProButton" destination="9M0-7P-1Ux" id="obp-jB-uPh"/>
+                        <outlet property="pheidiProView" destination="nYB-tz-S3I" id="5Gr-ka-vKU"/>
                         <segue destination="l25-ge-UyM" kind="presentation" identifier="showUni" modalPresentationStyle="fullScreen" id="6SY-EC-UJj"/>
                         <segue destination="WCy-4o-tLa" kind="presentation" identifier="showFivestar" modalPresentationStyle="fullScreen" id="Iz4-om-HMa"/>
                     </connections>
@@ -1166,7 +1194,7 @@
                                     <constraint firstAttribute="width" secondItem="arL-1Q-cit" secondAttribute="height" multiplier="24:7" id="BOZ-XV-TMe"/>
                                     <constraint firstAttribute="width" constant="288" id="Wwh-p4-nHi"/>
                                 </constraints>
-                                <string key="text">Now you can email thousands of college coaches from anywhere in the United States. Kickstart your recruiting process with Fivestar.</string>
+                                <string key="text">Now you can match with thousands of college programs from anywhere in the United States. Kickstart your recruiting process with Fivestar.</string>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

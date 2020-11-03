@@ -48,6 +48,8 @@ class starredSchool: UIView {
         //let alphaColor = UIColor(red:0.00, green:0.15, blue:0.12, alpha:1.0)//00271f
         let alphaColor = UIColor(red:0.00, green:0.08, blue:0.06, alpha:1.0)
         //testView.backgroundColor = pheidiColors.pheidiTeal.withAlphaComponent(0.15)
+        
+        
         pheidiColors.addHorizontalGradientColorToView(view: self, color: alphaColor)
         
         academicProgressView.barColor = alphaColor2

@@ -74,6 +74,7 @@ extension iapViewController: SKPaymentTransactionObserver {
                 statusAlert.image = UIImage(named: "checkmark")
                 statusAlert.appearance.blurStyle = .dark
                 statusAlert.showInKeyWindow()
+                SKStoreReviewController.requestReview()
                 
             } else if transaction.transactionState == .failed {
                 let generator = UINotificationFeedbackGenerator()
@@ -101,6 +102,7 @@ extension iapViewController: SKPaymentTransactionObserver {
                 statusAlert.image = UIImage(named: "checkmark")
                 statusAlert.appearance.blurStyle = .dark
                 statusAlert.showInKeyWindow()
+                SKStoreReviewController.requestReview()
             }
         }
     }

@@ -43,9 +43,12 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
     
     let scopeArray = ["All", "D1", "D2", "D3", "NAIA"]
     
+    @IBOutlet weak var pheidiProView: UIView!
+    @IBOutlet weak var pheidiProButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        addProButton()
         self.tabBarController?.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveReloadRequest(_:)), name: Notification.Name("Reload Requested"), object: nil)
         
@@ -102,6 +105,11 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
             }
         })
         tableView.reloadData()
+        
+        pheidiProButton.layer.cornerRadius = 8
+        pheidiProButton.layer.borderColor = pheidiColors.pheidiTeal.cgColor
+        pheidiProButton.layer.borderWidth = 1.0
+        pheidiProButton.setTitle("UNLOCK ALL \(matchesArr.count) MATCHES!", for: .normal)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -280,6 +288,11 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
         tableView.reloadData()
     }
     
+    @IBAction func segueToPheidiPro(_ sender: Any) {
+        performSegue(withIdentifier: "showFivestar", sender: self)
+    }
+    
+    
 
     // MARK: - Table view data source
 
@@ -347,6 +360,9 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
             cell.view.layer.masksToBounds = true
             
             cell.view.addSubview(cellView!)
+            
+            cell.view.layer.cornerRadius = 18
+            cell.view.layer.masksToBounds = true
             
             return cell
         }
@@ -416,8 +432,10 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
         self.tabBarController?.delegate = self
         if UserDefaults.standard.bool(forKey: "pro") {
             currArr = matchesArr
+            pheidiProView.removeFromSuperview()
         } else {
             currArr = smallMatchesArr
+            pheidiProButton.setTitle("UNLOCK ALL \(matchesArr.count) MATCHES!", for: .normal)
         }
         currArr = currArr.sorted(by: {
             if Int($0.match) != Int($1.match) {
