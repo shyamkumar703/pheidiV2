@@ -79,8 +79,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         // Called to let your app know which action was selected by the user for a given notification.
         let userInfo = response.notification.request.content.userInfo as NSDictionary
-        if (userInfo["Action"] as? String == "Survey1") {
-                if let url = URL(string: "https://www.pheiditrack.com") {
+        if (userInfo["Survey"] as? String != nil) {
+                if let url = URL(string: userInfo["Survey"] as! String) {
                     UIApplication.shared.open(url)
             }
         }
