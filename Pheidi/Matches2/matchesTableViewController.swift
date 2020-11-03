@@ -343,6 +343,9 @@ class matchesTableViewController: UITableViewController, UITabBarControllerDeleg
             }
             cellView!.match.text = currUni!.match + "%"
             
+            cell.view.layer.cornerRadius = 18
+            cell.view.layer.masksToBounds = true
+            
             cell.view.addSubview(cellView!)
             
             return cell
