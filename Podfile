@@ -14,6 +14,10 @@ target 'Pheidi' do
   pod 'BulletinBoard'
   pod 'Mixpanel-swift'
   pod 'SwiftEntryKit', '1.2.3'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Messaging'
   # Pods for Pheidi
 
   target 'PheidiTests' do
