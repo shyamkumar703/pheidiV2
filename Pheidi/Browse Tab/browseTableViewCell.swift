@@ -58,6 +58,7 @@ class browseTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
             
             
             cell.contentView.layer.cornerRadius = 18
+            
             return cell
         }
         return UICollectionViewCell()

@@ -1311,7 +1311,7 @@
                                     <constraint firstAttribute="height" constant="45" id="84o-nn-qN3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
-                                <state key="normal" title="Get 12 Months For $23.88">
+                                <state key="normal" title="Get 12 Months For $23.99">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>

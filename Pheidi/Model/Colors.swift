@@ -325,7 +325,7 @@ public class University {
         static func createUniversityList() {
             //let contents = University.readDataFromFile(file: "finalPheidiData")!
             //let contents = University.readDataFromFile(file: "finalPheidiDataDivision")!
-            let contents = University.readDataFromFile(file: "newFullData")!
+            let contents = University.readDataFromFile(file: "full_data")!
             let universityList = contents.components(separatedBy: "\n").map{ $0.components(separatedBy: ",") }
             print(universityList[1])
             for index in 1...universityList.count - 1 {
@@ -344,7 +344,7 @@ public class University {
                 let coach = currArr[64]
                 let email = currArr[65]
                 let onlyWomen = currArr[66]
-                if coach != "" && coach != "nan" && coach != "None" {
+                if coach != "" && coach != "nan" && coach != "None" && coach != "NaN" {
                     currUni.coach = coach
                     currUni.email = email
                 }

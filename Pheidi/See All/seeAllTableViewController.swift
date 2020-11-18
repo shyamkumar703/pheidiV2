@@ -152,6 +152,10 @@ class seeAllTableViewController: UITableViewController {
             }
             
             cell.view.addSubview(cellView!)
+            
+            cell.view.layer.cornerRadius = 18
+            cell.view.layer.masksToBounds = true
+            
             return cell
         }
 

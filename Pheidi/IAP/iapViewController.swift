@@ -18,7 +18,7 @@ class iapViewController: UIViewController {
     @IBOutlet weak var monthSubscription: UIView!
     
     var monthSelected = false
-    var selectedProductIdentifier = "com.pheidi.pheidiProYear"
+    var selectedProductIdentifier = "com.pheidi.pheidiProYearly"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,13 +53,13 @@ class iapViewController: UIViewController {
     }
     
     @objc func yearTapped(_sender: UITapGestureRecognizer) {
-        selectedProductIdentifier = "com.pheidi.pheidiProYear"
+        selectedProductIdentifier = "com.pheidi.pheidiProYearly"
         if monthSelected {
             UIView.animate(withDuration: 0.5, animations: {
                 self.monthSubscription.layer.borderColor = UIColor.black.cgColor
                 self.popularLabel.backgroundColor = pheidiColors.pheidiTeal
                 self.yearSubscription.layer.borderColor = pheidiColors.pheidiTeal.cgColor
-                self.joinButton.setTitle("Get 12 Months For $23.88", for: .normal)
+                self.joinButton.setTitle("Get 12 Months For $23.99", for: .normal)
                 self.monthSelected = false
             })
         }

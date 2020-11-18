@@ -63,6 +63,7 @@
 		01B7ADA724C7E15B00CAEA51 /* legalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B7ADA624C7E15B00CAEA51 /* legalViewController.swift */; };
 		01B7ADA924C7EC5000CAEA51 /* legalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B7ADA824C7EC5000CAEA51 /* legalTableViewCell.swift */; };
 		01BA27B92551F4BC00923E88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01BA27B82551F4BC00923E88 /* GoogleService-Info.plist */; };
+		01BA296825639B3500923E88 /* full_data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 01BA296725639B3500923E88 /* full_data.csv */; };
 		01BD181B24772D87003A806C /* starredSchool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BD181A24772D87003A806C /* starredSchool.swift */; };
 		01BD181D24774E12003A806C /* starredUniversityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BD181C24774E12003A806C /* starredUniversityCollectionViewCell.swift */; };
 		01BD18202477A3BD003A806C /* settingsCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BD181F2477A3BD003A806C /* settingsCard.xib */; };
@@ -187,6 +188,7 @@
 		01B7ADA824C7EC5000CAEA51 /* legalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = legalTableViewCell.swift; sourceTree = "<group>"; };
 		01BA27B82551F4BC00923E88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01BA28362552069F00923E88 /* Pheidi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pheidi.entitlements; sourceTree = "<group>"; };
+		01BA296725639B3500923E88 /* full_data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = full_data.csv; sourceTree = "<group>"; };
 		01BD181A24772D87003A806C /* starredSchool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starredSchool.swift; sourceTree = "<group>"; };
 		01BD181C24774E12003A806C /* starredUniversityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starredUniversityCollectionViewCell.swift; sourceTree = "<group>"; };
 		01BD181F2477A3BD003A806C /* settingsCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = settingsCard.xib; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 		012BC95624785FA40035F068 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				01BA296725639B3500923E88 /* full_data.csv */,
 				01879B1C2484BFD900C1F8FE /* newFullData.csv */,
 				01C9538B247F5DA900723438 /* finalPheidiDataDivision.csv */,
 				01FD1168247C9772002467F6 /* finalPheidiData.csv */,
@@ -693,6 +696,7 @@
 				01056A29246FA3D1006FFCB3 /* marksCell.xib in Resources */,
 				01879B23248709A700C1F8FE /* ProximaNova-Regular.otf in Resources */,
 				01AF03922474F4EB00B21156 /* topOverview.xib in Resources */,
+				01BA296825639B3500923E88 /* full_data.csv in Resources */,
 				01056A23246F2450006FFCB3 /* profileAcademic.xib in Resources */,
 				01F71F8E246A4FCF007CEFAA /* Assets.xcassets in Resources */,
 				01F71F89246A4FCD007CEFAA /* Main.storyboard in Resources */,
@@ -1043,7 +1047,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Pheidi/Pheidi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PM79C3BXFD;
 				INFOPLIST_FILE = Pheidi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -1051,7 +1055,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.8;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shyam-Kumar.teamConnect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1066,7 +1070,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Pheidi/Pheidi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PM79C3BXFD;
 				INFOPLIST_FILE = Pheidi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -1074,7 +1078,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.8;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shyam-Kumar.teamConnect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

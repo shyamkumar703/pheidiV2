@@ -108,7 +108,8 @@ class browseViewController: UIViewController, UITableViewDataSource, UITableView
                 currTableTitle = tagDict["title"] as? String
                 srcArray = tagDict["arr"] as? [University]
                 performSegue(withIdentifier: "seeAll", sender: self)
-            } else {
+            }
+            else {
                 //SHOW PHEIDI PRO
                 performSegue(withIdentifier: "toFivestar", sender: self)
             }

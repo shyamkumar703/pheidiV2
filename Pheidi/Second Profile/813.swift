@@ -51,6 +51,10 @@ class secondProfileViewController: UIViewController, UICollectionViewDelegate, U
             
             cell.view.addSubview(cellView!)
             cell.contentView.layer.cornerRadius = 18
+            
+            cell.view.layer.cornerRadius = 18
+            cell.view.layer.masksToBounds = true
+            
             return cell
         }
         return UICollectionViewCell()
