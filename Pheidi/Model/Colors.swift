@@ -27,6 +27,7 @@ var topFinishersLinksArr: [String] = ["https://tx.milesplit.com/teams/670-texas-
 "https://or.milesplit.com/teams/1252-university-of-oregon/roster", "https://nm.milesplit.com/teams/3933-university-of-new-mexico/roster",
 "https://co.milesplit.com/teams/1229-university-of-colorado/roster"]
 var topFinishersUni: [University] = []
+var uniList: [University] = []
 
 
 
