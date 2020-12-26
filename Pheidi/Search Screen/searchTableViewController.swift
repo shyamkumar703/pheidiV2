@@ -29,31 +29,60 @@ class searchTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return uniList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as? searchTableViewCell {
-            cell.school.text = schools[indexPath.row % 5]
+            let currSchool = uniList[indexPath.row]
+            
+            cell.school.text = currSchool.name
+            cell.school.adjustsFontSizeToFitWidth = true
             
             cell.matchLabel.layer.cornerRadius = 5
             cell.matchLabel.layer.masksToBounds = true
             
+            if currSchool.division != "" {
+                cell.division.text = currSchool.division.uppercased()
+            } else {
+                cell.division.text = "-"
+            }
+            
             cell.view.layer.cornerRadius = 10
             
-            let randomInt = Int.random(in: 0..<3)
+//            let randomInt = Int.random(in: 0..<3)
             
-            switch randomInt {
-            case 0:
+            if currSchool.match == "N/A" {
+                cell.matchLabel.text = "-"
+                cell.matchLabel.backgroundColor = Colors.redOpaq
+                cell.matchLabel.textColor = Colors.red
+                return cell
+            } else {
+                cell.matchLabel.text = currSchool.match + "%"
+            }
+            
+            if Int(currSchool.match)! > 75 {
                 cell.matchLabel.backgroundColor = Colors.greenOpaq
                 cell.matchLabel.textColor = Colors.green
-            case 1:
+            } else if Int(currSchool.match)! > 50 {
                 cell.matchLabel.backgroundColor = Colors.yellowOpaq
                 cell.matchLabel.textColor = Colors.yellow
-            default:
+            } else {
                 cell.matchLabel.backgroundColor = Colors.redOpaq
                 cell.matchLabel.textColor = Colors.red
             }
+            
+//            switch randomInt {
+//            case 0:
+//                cell.matchLabel.backgroundColor = Colors.greenOpaq
+//                cell.matchLabel.textColor = Colors.green
+//            case 1:
+//                cell.matchLabel.backgroundColor = Colors.yellowOpaq
+//                cell.matchLabel.textColor = Colors.yellow
+//            default:
+//                cell.matchLabel.backgroundColor = Colors.redOpaq
+//                cell.matchLabel.textColor = Colors.red
+//            }
             
             return cell
         }

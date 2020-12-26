@@ -16,6 +16,7 @@ class questionsViewController: UIViewController {
     @IBOutlet weak var frontViewWidth: NSLayoutConstraint!
     
     var questionsArr = ["What is your first name?", "What is your last name?", "What is your GPA?", "What is your SAT?", "What is your ACT?"]
+    var eventsArr = ["", "", "GPA", "SAT", "ACT"]
     var index = 0
     var marks = false
     
@@ -62,6 +63,7 @@ class questionsViewController: UIViewController {
     @objc func popToPrevious() {
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
+        saveCurrentAnswer()
         self.index -= 1
         changeView()
         calculateProgressViewWidth()
@@ -118,10 +120,28 @@ class questionsViewController: UIViewController {
     }
     */
     @IBAction func nextPressed(_ sender: Any) {
+        saveCurrentAnswer()
         self.index += 1
         profileViewController.buttonPress(nextButton, completion: nil)
         changeView()
         calculateProgressViewWidth()
+    }
+    
+    func saveCurrentAnswer() {
+        let currEvent: Event? = fullEventDict[eventsArr[index]]
+        switch currEvent?.eventType {
+        case .double:
+            let currentDouble = User.stringToDouble(textFieldAnswer.text ?? "0")
+            currEvent?.saveValueDouble(currEvent!.coreDataKey, currentDouble)
+        case .int:
+            let currentInt = Int(User.stringToDouble(textFieldAnswer.text ?? "0"))
+            currEvent?.saveValueInt(currEvent!.coreDataKey, currentInt)
+        case .feet:
+            let currentDouble = User.stringToFt(textFieldAnswer.text ?? "0")
+            currEvent?.saveValueDouble(currEvent!.coreDataKey, currentDouble)
+        default:
+            return
+        }
     }
     
     func changeView() {

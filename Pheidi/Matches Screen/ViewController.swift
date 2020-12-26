@@ -38,6 +38,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         matchesTableView.dataSource = self
         matchesTableView.delegate = self
+        user.populateUserAtLaunch()
+        University.loadMatchesMale()
         // Do any additional setup after loading the view.
 //        self.navigationController?.navigationBar.barStyle = .black
 //        self.navigationController?.navigationBar.prefersLargeTitles = true

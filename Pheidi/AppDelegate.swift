@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
         
+        Event.populateFullEventDict()
+        University.createUniversityList()
+        
         
         if #available(iOS 10.0, *) {
           // For iOS 10 display notification (sent via APNS)

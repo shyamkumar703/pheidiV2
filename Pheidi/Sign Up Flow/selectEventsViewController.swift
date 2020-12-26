@@ -109,12 +109,14 @@ class selectEventsViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func nextButton(_ sender: Any) {
         makeQuestionArr()
+        user.saveCurrEvents(selectedArr)
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let prevViewController = storyBoard.instantiateViewController(withIdentifier: "questions") as! questionsViewController
         
         prevViewController.questionsArr = questionArr
         prevViewController.index = 0
+        prevViewController.eventsArr = selectedArr
         prevViewController.marks = true
         
         UIView.animate(withDuration: 0.4, animations: {

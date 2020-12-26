@@ -39,6 +39,7 @@
 		01879B1F2487019B00C1F8FE /* Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01879B1E2487019B00C1F8FE /* Proxima Nova Thin.otf */; };
 		01879B212487021900C1F8FE /* Proxima Nova Alt Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01879B202487021900C1F8FE /* Proxima Nova Alt Light.otf */; };
 		01879B23248709A700C1F8FE /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01879B22248709A700C1F8FE /* ProximaNova-Regular.otf */; };
+		018CEF2D2597DA3C003CEE1D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018CEF2C2597DA3C003CEE1D /* Event.swift */; };
 		0196FC883D1C6886EA0CA158 /* Pods_PheidiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB5CBFDA439949C5ABA6B0A /* Pods_PheidiTests.framework */; };
 		01BA27B92551F4BC00923E88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01BA27B82551F4BC00923E88 /* GoogleService-Info.plist */; };
 		01BA296825639B3500923E88 /* full_data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 01BA296725639B3500923E88 /* full_data.csv */; };
@@ -124,6 +125,7 @@
 		01879B1E2487019B00C1F8FE /* Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Thin.otf"; sourceTree = "<group>"; };
 		01879B202487021900C1F8FE /* Proxima Nova Alt Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Alt Light.otf"; sourceTree = "<group>"; };
 		01879B22248709A700C1F8FE /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		018CEF2C2597DA3C003CEE1D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		01BA27B82551F4BC00923E88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01BA28362552069F00923E88 /* Pheidi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pheidi.entitlements; sourceTree = "<group>"; };
 		01BA296725639B3500923E88 /* full_data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = full_data.csv; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				012BC959247863BB0035F068 /* PersistenceService.swift */,
 				012BC965247A27E40035F068 /* RadioButton.swift */,
 				01D876BC247C6C1B003B907B /* University.swift */,
+				018CEF2C2597DA3C003CEE1D /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				0146A1BB2597126C00B47E9D /* smallCellView.swift in Sources */,
 				0146A1BC2597126C00B47E9D /* smallRecTableViewCell.swift in Sources */,
 				0146A1BD2597126C00B47E9D /* smallCollectionViewCell.swift in Sources */,
+				018CEF2D2597DA3C003CEE1D /* Event.swift in Sources */,
 				0146A1DB25971A7D00B47E9D /* switchTableViewCell.swift in Sources */,
 				0146A1AB2597124900B47E9D /* profileViewController.swift in Sources */,
 				0146A1A3259711FB00B47E9D /* eventTableViewCell.swift in Sources */,
