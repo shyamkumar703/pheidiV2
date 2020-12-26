@@ -16,6 +16,11 @@ class eventTableViewCell: UITableViewCell {
         // Initialization code
         view.layer.cornerRadius = 20
     }
+    
+    override func prepareForReuse() -> Void {
+        view.layer.borderWidth = 0
+        view.layer.borderColor = UIColor.clear.cgColor
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

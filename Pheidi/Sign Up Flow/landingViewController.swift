@@ -16,6 +16,7 @@ class landingViewController: UIViewController {
         super.viewDidLoad()
         getStartedView.layer.cornerRadius = 30
         generateTapRecognizer()
+        user.createData()
 
         // Do any additional setup after loading the view.
     }

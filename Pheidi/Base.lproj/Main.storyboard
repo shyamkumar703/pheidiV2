@@ -21,7 +21,7 @@
         <!--View Controller-->
         <scene sceneID="rA0-4V-SsJ">
             <objects>
-                <viewController id="AhO-Yl-Bvk" customClass="ViewController" customModule="newPheidiUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AhO-Yl-Bvk" customClass="ViewController" customModule="Pheidi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rEo-Uc-AYJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                                 <rect key="frame" x="0.0" y="108" width="414" height="705"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="topRecommendations" rowHeight="270" id="XaQ-Rx-yBQ" customClass="topRecTableViewCell" customModule="newPheidiUI" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="topRecommendations" rowHeight="270" id="XaQ-Rx-yBQ" customClass="topRecTableViewCell" customModule="Pheidi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="270"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XaQ-Rx-yBQ" id="erk-TC-6od">
@@ -63,7 +63,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="topRec" id="0do-Ru-ljO" customClass="topRecCollectionViewCell" customModule="newPheidiUI" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="topRec" id="0do-Ru-ljO" customClass="topRecCollectionViewCell" customModule="Pheidi" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.66666666666666663" width="374" height="191"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CYI-Lu-Kpk">
@@ -106,7 +106,7 @@
                                             <outlet property="title" destination="ZtM-KZ-spj" id="bLw-yC-DTJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="smallTableCell" rowHeight="221" id="Zw2-89-jG3" customClass="smallRecTableViewCell" customModule="newPheidiUI" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="smallTableCell" rowHeight="221" id="Zw2-89-jG3" customClass="smallRecTableViewCell" customModule="Pheidi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="298" width="414" height="221"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zw2-89-jG3" id="Nqx-5y-DoY">
@@ -136,7 +136,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="smallCell" id="bly-vX-vJu" customClass="smallCollectionViewCell" customModule="newPheidiUI" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="smallCell" id="bly-vX-vJu" customClass="smallCollectionViewCell" customModule="Pheidi" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="261" height="128"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="M8U-WH-EhU">
@@ -199,13 +199,13 @@
         <!--Item-->
         <scene sceneID="zvk-jw-laC">
             <objects>
-                <viewController id="3jV-nB-bIh" customClass="uniInfoViewController" customModule="newPheidiUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3jV-nB-bIh" customClass="uniInfoViewController" customModule="Pheidi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xdc-gJ-se3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeD-Qf-Upv">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeD-Qf-Upv" customClass="SSFadingScrollView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="748"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VH-WJ-3Bx">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
@@ -215,7 +215,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="wLs-Rr-rRt"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="21"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -569,6 +569,9 @@
                                     <constraint firstItem="6VH-WJ-3Bx" firstAttribute="leading" secondItem="xeD-Qf-Upv" secondAttribute="leading" id="fks-4h-VaZ"/>
                                     <constraint firstItem="6VH-WJ-3Bx" firstAttribute="height" secondItem="xeD-Qf-Upv" secondAttribute="height" priority="250" id="ygM-9Y-hKu"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fadeLeadingEdge" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgF-V5-F59">
                                 <rect key="frame" x="25" y="799" width="50" height="50"/>
@@ -605,7 +608,7 @@
                         <constraints>
                             <constraint firstItem="wvh-9e-J5P" firstAttribute="bottom" secondItem="vgF-V5-F59" secondAttribute="bottom" constant="13" id="570-CD-XPc"/>
                             <constraint firstItem="vgF-V5-F59" firstAttribute="leading" secondItem="wvh-9e-J5P" secondAttribute="leading" constant="25" id="BaE-j1-WIL"/>
-                            <constraint firstItem="xeD-Qf-Upv" firstAttribute="bottom" secondItem="wvh-9e-J5P" secondAttribute="bottom" id="OYM-Ye-7pO"/>
+                            <constraint firstItem="xeD-Qf-Upv" firstAttribute="bottom" secondItem="wvh-9e-J5P" secondAttribute="bottom" constant="-70" id="OYM-Ye-7pO"/>
                             <constraint firstItem="xeD-Qf-Upv" firstAttribute="trailing" secondItem="wvh-9e-J5P" secondAttribute="trailing" id="X9q-BZ-PdI"/>
                             <constraint firstItem="wvh-9e-J5P" firstAttribute="bottom" secondItem="rqH-E1-uAE" secondAttribute="bottom" constant="18" id="ZHr-kB-shh"/>
                             <constraint firstItem="xeD-Qf-Upv" firstAttribute="top" secondItem="wvh-9e-J5P" secondAttribute="top" id="ZSZ-CB-jJG"/>
@@ -662,13 +665,13 @@
         <!--Search Table View Controller-->
         <scene sceneID="qvd-8i-HRO">
             <objects>
-                <tableViewController id="bDR-Up-PuC" customClass="searchTableViewController" customModule="newPheidiUI" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="bDR-Up-PuC" customClass="searchTableViewController" customModule="Pheidi" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="ILN-MM-HAB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.070588235289999995" green="0.070588235289999995" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="90" id="b0B-cx-PBP" customClass="searchTableViewCell" customModule="newPheidiUI" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="90" id="b0B-cx-PBP" customClass="searchTableViewCell" customModule="Pheidi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b0B-cx-PBP" id="EP3-z8-pTO">
@@ -679,16 +682,16 @@
                                             <rect key="frame" x="21.666666666666657" y="11.666666666666664" width="371" height="66.666666666666686"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jmv-Ly-Por">
-                                                    <rect key="frame" x="8" y="14.000000000000004" width="274.66666666666669" height="38.666666666666671"/>
+                                                    <rect key="frame" x="8" y="14.000000000000004" width="274" height="38.666666666666671"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="University of California, Berkeley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHc-6s-WeV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="274.66666666666669" height="21"/>
-                                                            <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Massachussets Institute of Technology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHc-6s-WeV">
+                                                            <rect key="frame" x="0.0" y="0.0" width="274" height="21.333333333333332"/>
+                                                            <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIVISION ONE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZk-EK-HHG">
-                                                            <rect key="frame" x="0.0" y="20.999999999999993" width="274.66666666666669" height="17.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="21.333333333333336" width="274" height="17.333333333333336"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="17.5" id="caS-0y-qvh"/>
                                                             </constraints>
@@ -699,7 +702,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="75%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDQ-Xh-yk0">
-                                                    <rect key="frame" x="302.66666666666663" y="22" width="60.333333333333314" height="22.666666666666671"/>
+                                                    <rect key="frame" x="302" y="22" width="61" height="22.666666666666671"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="GDQ-Xh-yk0" secondAttribute="height" multiplier="59:22" id="F7S-3V-vlj"/>
                                                     </constraints>
@@ -714,7 +717,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="GDQ-Xh-yk0" secondAttribute="trailing" constant="8" id="Ck9-Pw-XWc"/>
                                                 <constraint firstItem="GDQ-Xh-yk0" firstAttribute="leading" secondItem="Jmv-Ly-Por" secondAttribute="trailing" constant="20" id="FxE-rw-BYV"/>
                                                 <constraint firstItem="GDQ-Xh-yk0" firstAttribute="top" secondItem="rpk-Mo-TFV" secondAttribute="top" constant="22" id="GVX-vs-bre"/>
-                                                <constraint firstAttribute="width" secondItem="rpk-Mo-TFV" secondAttribute="height" multiplier="374:67" id="Op9-og-nEh"/>
+                                                <constraint firstAttribute="height" constant="66.670000000000002" id="YDZ-DJ-K8f"/>
                                                 <constraint firstItem="Jmv-Ly-Por" firstAttribute="top" secondItem="rpk-Mo-TFV" secondAttribute="top" constant="14" id="bzz-Lp-Kh1"/>
                                                 <constraint firstItem="Jmv-Ly-Por" firstAttribute="leading" secondItem="rpk-Mo-TFV" secondAttribute="leading" constant="8" id="dXX-ei-Gn3"/>
                                                 <constraint firstAttribute="bottom" secondItem="Jmv-Ly-Por" secondAttribute="bottom" constant="14" id="kv8-xS-1vC"/>
@@ -780,7 +783,7 @@
         <!--Landing View Controller-->
         <scene sceneID="5Rz-g6-PqI">
             <objects>
-                <viewController storyboardIdentifier="registerNav" id="MNe-Tf-Olw" customClass="landingViewController" customModule="newPheidiUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerNav" id="MNe-Tf-Olw" customClass="landingViewController" customModule="Pheidi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U2v-ul-8p6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -862,7 +865,7 @@
         <!--Questions View Controller-->
         <scene sceneID="IiY-vy-AWf">
             <objects>
-                <viewController storyboardIdentifier="questions" id="eZU-8P-tIO" customClass="questionsViewController" customModule="newPheidiUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="questions" id="eZU-8P-tIO" customClass="questionsViewController" customModule="Pheidi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vY9-wx-X1V">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -961,7 +964,7 @@
         <!--Select Events View Controller-->
         <scene sceneID="Xhv-kb-Csl">
             <objects>
-                <viewController storyboardIdentifier="selectEvents" id="mMN-3B-hpb" customClass="selectEventsViewController" customModule="newPheidiUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="selectEvents" id="mMN-3B-hpb" customClass="selectEventsViewController" customModule="Pheidi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g3V-Vl-8dr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -979,7 +982,7 @@
                                 <rect key="frame" x="0.0" y="182" width="414" height="605"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="event" rowHeight="90" id="J7c-eH-UWZ" customClass="eventTableViewCell" customModule="newPheidiUI" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="event" rowHeight="90" id="J7c-eH-UWZ" customClass="eventTableViewCell" customModule="Pheidi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J7c-eH-UWZ" id="4mG-JB-HEC">
@@ -1089,7 +1092,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settingsCell" id="WKE-0m-C0x" customClass="settingsCollectionViewCell" customModule="newPheidiUI" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settingsCell" id="WKE-0m-C0x" customClass="settingsCollectionViewCell" customModule="Pheidi" customModuleProvider="target">
                                         <rect key="frame" x="0.66666666666666663" y="0.0" width="373" height="222"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EVY-cN-voo">
@@ -1110,7 +1113,7 @@
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="separatorColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textCell" rowHeight="60" id="sOI-2g-ORM" customClass="textTableViewCell" customModule="newPheidiUI" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textCell" rowHeight="60" id="sOI-2g-ORM" customClass="textTableViewCell" customModule="Pheidi" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="373" height="60"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sOI-2g-ORM" id="pZd-cy-dkQ">
@@ -1153,7 +1156,7 @@
                                                                 <outlet property="value" destination="OoT-J8-nGy" id="BJH-a8-pMf"/>
                                                             </connections>
                                                         </tableViewCell>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="switchCell" rowHeight="60" id="OEK-5w-DlP" customClass="switchTableViewCell" customModule="newPheidiUI" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="switchCell" rowHeight="60" id="OEK-5w-DlP" customClass="switchTableViewCell" customModule="Pheidi" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="88" width="373" height="60"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OEK-5w-DlP" id="qju-cQ-aQV">
@@ -1255,7 +1258,7 @@
         <!--Profile View Controller-->
         <scene sceneID="3oK-Qm-znK">
             <objects>
-                <viewController id="yFE-gH-NAG" customClass="profileViewController" customModule="newPheidiUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yFE-gH-NAG" customClass="profileViewController" customModule="Pheidi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U3Z-4h-dW3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1330,7 +1333,7 @@
                                 <rect key="frame" x="0.0" y="338" width="414" height="475"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profileList" rowHeight="90" id="Mnp-JY-tuG" customClass="profileTableViewCell" customModule="newPheidiUI" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profileList" rowHeight="90" id="Mnp-JY-tuG" customClass="profileTableViewCell" customModule="Pheidi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mnp-JY-tuG" id="0ym-mu-w31">
@@ -1345,7 +1348,7 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="University of California, Berkeley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mc-FE-HKu">
                                                                     <rect key="frame" x="0.0" y="0.0" width="273" height="21.333333333333332"/>
-                                                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -1376,10 +1379,10 @@
                                                         <constraint firstItem="eGl-A5-Bs0" firstAttribute="top" secondItem="pwm-c1-n5G" secondAttribute="top" constant="22" id="6OF-1h-pWu"/>
                                                         <constraint firstAttribute="bottom" secondItem="TdJ-Zj-jPi" secondAttribute="bottom" constant="14" id="BeI-eo-Zdx"/>
                                                         <constraint firstAttribute="bottom" secondItem="eGl-A5-Bs0" secondAttribute="bottom" constant="22" id="f4t-3x-Egn"/>
-                                                        <constraint firstAttribute="width" secondItem="pwm-c1-n5G" secondAttribute="height" multiplier="371:67" id="pRP-xl-taa"/>
                                                         <constraint firstItem="eGl-A5-Bs0" firstAttribute="leading" secondItem="TdJ-Zj-jPi" secondAttribute="trailing" constant="20" id="qmf-U2-dDz"/>
                                                         <constraint firstItem="TdJ-Zj-jPi" firstAttribute="top" secondItem="pwm-c1-n5G" secondAttribute="top" constant="14" id="wUv-zq-e78"/>
                                                         <constraint firstItem="TdJ-Zj-jPi" firstAttribute="leading" secondItem="pwm-c1-n5G" secondAttribute="leading" constant="8" id="wiV-49-Unx"/>
+                                                        <constraint firstAttribute="height" constant="67" id="zMz-ws-5Gu"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1489,7 +1492,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ohe-QO-Vpa"/>
+        <segue reference="Nfh-1U-56w"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
