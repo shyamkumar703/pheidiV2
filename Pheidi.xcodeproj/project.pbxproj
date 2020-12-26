@@ -13,6 +13,24 @@
 		012BC95824785FC30035F068 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012BC95724785FC30035F068 /* Person.swift */; };
 		012BC95A247863BB0035F068 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012BC959247863BB0035F068 /* PersistenceService.swift */; };
 		012BC966247A27E40035F068 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012BC965247A27E40035F068 /* RadioButton.swift */; };
+		0146A1A0259711FB00B47E9D /* selectEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A19C259711FB00B47E9D /* selectEventsViewController.swift */; };
+		0146A1A1259711FB00B47E9D /* questionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A19D259711FB00B47E9D /* questionsViewController.swift */; };
+		0146A1A2259711FB00B47E9D /* landingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A19E259711FB00B47E9D /* landingViewController.swift */; };
+		0146A1A3259711FB00B47E9D /* eventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A19F259711FB00B47E9D /* eventTableViewCell.swift */; };
+		0146A1AA2597124900B47E9D /* profileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1A82597124900B47E9D /* profileTableViewCell.swift */; };
+		0146A1AB2597124900B47E9D /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1A92597124900B47E9D /* profileViewController.swift */; };
+		0146A1B92597126C00B47E9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1B02597126C00B47E9D /* ViewController.swift */; };
+		0146A1BA2597126C00B47E9D /* smallCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0146A1B12597126C00B47E9D /* smallCollectionViewCell.xib */; };
+		0146A1BB2597126C00B47E9D /* smallCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1B22597126C00B47E9D /* smallCellView.swift */; };
+		0146A1BC2597126C00B47E9D /* smallRecTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1B32597126C00B47E9D /* smallRecTableViewCell.swift */; };
+		0146A1BD2597126C00B47E9D /* smallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1B42597126C00B47E9D /* smallCollectionViewCell.swift */; };
+		0146A1BE2597126C00B47E9D /* topCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1B52597126C00B47E9D /* topCellView.swift */; };
+		0146A1BF2597126C00B47E9D /* topCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0146A1B62597126C00B47E9D /* topCollectionViewCell.xib */; };
+		0146A1C02597126C00B47E9D /* topRecCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1B72597126C00B47E9D /* topRecCollectionViewCell.swift */; };
+		0146A1C12597126C00B47E9D /* topRecTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1B82597126C00B47E9D /* topRecTableViewCell.swift */; };
+		0146A1C82597127400B47E9D /* searchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1C62597127400B47E9D /* searchTableViewController.swift */; };
+		0146A1C92597127400B47E9D /* searchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1C72597127400B47E9D /* searchTableViewCell.swift */; };
+		0146A1CF2597127C00B47E9D /* uniInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1CE2597127B00B47E9D /* uniInfoViewController.swift */; };
 		01879B1D2484BFD900C1F8FE /* newFullData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 01879B1C2484BFD900C1F8FE /* newFullData.csv */; };
 		01879B1F2487019B00C1F8FE /* Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01879B1E2487019B00C1F8FE /* Proxima Nova Thin.otf */; };
 		01879B212487021900C1F8FE /* Proxima Nova Alt Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01879B202487021900C1F8FE /* Proxima Nova Alt Light.otf */; };
@@ -76,6 +94,24 @@
 		012BC95724785FC30035F068 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		012BC959247863BB0035F068 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		012BC965247A27E40035F068 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		0146A19C259711FB00B47E9D /* selectEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = selectEventsViewController.swift; sourceTree = "<group>"; };
+		0146A19D259711FB00B47E9D /* questionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = questionsViewController.swift; sourceTree = "<group>"; };
+		0146A19E259711FB00B47E9D /* landingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = landingViewController.swift; sourceTree = "<group>"; };
+		0146A19F259711FB00B47E9D /* eventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventTableViewCell.swift; sourceTree = "<group>"; };
+		0146A1A82597124900B47E9D /* profileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileTableViewCell.swift; sourceTree = "<group>"; };
+		0146A1A92597124900B47E9D /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
+		0146A1B02597126C00B47E9D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0146A1B12597126C00B47E9D /* smallCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = smallCollectionViewCell.xib; sourceTree = "<group>"; };
+		0146A1B22597126C00B47E9D /* smallCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = smallCellView.swift; sourceTree = "<group>"; };
+		0146A1B32597126C00B47E9D /* smallRecTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = smallRecTableViewCell.swift; sourceTree = "<group>"; };
+		0146A1B42597126C00B47E9D /* smallCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = smallCollectionViewCell.swift; sourceTree = "<group>"; };
+		0146A1B52597126C00B47E9D /* topCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topCellView.swift; sourceTree = "<group>"; };
+		0146A1B62597126C00B47E9D /* topCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = topCollectionViewCell.xib; sourceTree = "<group>"; };
+		0146A1B72597126C00B47E9D /* topRecCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topRecCollectionViewCell.swift; sourceTree = "<group>"; };
+		0146A1B82597126C00B47E9D /* topRecTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topRecTableViewCell.swift; sourceTree = "<group>"; };
+		0146A1C62597127400B47E9D /* searchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchTableViewController.swift; sourceTree = "<group>"; };
+		0146A1C72597127400B47E9D /* searchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchTableViewCell.swift; sourceTree = "<group>"; };
+		0146A1CE2597127B00B47E9D /* uniInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uniInfoViewController.swift; sourceTree = "<group>"; };
 		01879B1C2484BFD900C1F8FE /* newFullData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = newFullData.csv; sourceTree = "<group>"; };
 		01879B1E2487019B00C1F8FE /* Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Thin.otf"; sourceTree = "<group>"; };
 		01879B202487021900C1F8FE /* Proxima Nova Alt Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Alt Light.otf"; sourceTree = "<group>"; };
@@ -164,6 +200,59 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0146A19B259711FB00B47E9D /* Sign Up Flow */ = {
+			isa = PBXGroup;
+			children = (
+				0146A19C259711FB00B47E9D /* selectEventsViewController.swift */,
+				0146A19D259711FB00B47E9D /* questionsViewController.swift */,
+				0146A19E259711FB00B47E9D /* landingViewController.swift */,
+				0146A19F259711FB00B47E9D /* eventTableViewCell.swift */,
+			);
+			path = "Sign Up Flow";
+			sourceTree = "<group>";
+		};
+		0146A1A72597124900B47E9D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0146A1A82597124900B47E9D /* profileTableViewCell.swift */,
+				0146A1A92597124900B47E9D /* profileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0146A1AF2597126C00B47E9D /* Matches Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0146A1B02597126C00B47E9D /* ViewController.swift */,
+				0146A1B12597126C00B47E9D /* smallCollectionViewCell.xib */,
+				0146A1B22597126C00B47E9D /* smallCellView.swift */,
+				0146A1B32597126C00B47E9D /* smallRecTableViewCell.swift */,
+				0146A1B42597126C00B47E9D /* smallCollectionViewCell.swift */,
+				0146A1B52597126C00B47E9D /* topCellView.swift */,
+				0146A1B62597126C00B47E9D /* topCollectionViewCell.xib */,
+				0146A1B72597126C00B47E9D /* topRecCollectionViewCell.swift */,
+				0146A1B82597126C00B47E9D /* topRecTableViewCell.swift */,
+			);
+			path = "Matches Screen";
+			sourceTree = "<group>";
+		};
+		0146A1C52597127400B47E9D /* Search Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0146A1C62597127400B47E9D /* searchTableViewController.swift */,
+				0146A1C72597127400B47E9D /* searchTableViewCell.swift */,
+			);
+			path = "Search Screen";
+			sourceTree = "<group>";
+		};
+		0146A1CD2597127B00B47E9D /* University Info */ = {
+			isa = PBXGroup;
+			children = (
+				0146A1CE2597127B00B47E9D /* uniInfoViewController.swift */,
+			);
+			path = "University Info";
+			sourceTree = "<group>";
+		};
 		01F71F73246A4FCD007CEFAA = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +279,11 @@
 			isa = PBXGroup;
 			children = (
 				01BA28362552069F00923E88 /* Pheidi.entitlements */,
+				0146A1CD2597127B00B47E9D /* University Info */,
+				0146A1C52597127400B47E9D /* Search Screen */,
+				0146A1AF2597126C00B47E9D /* Matches Screen */,
+				0146A1A72597124900B47E9D /* Profile */,
+				0146A19B259711FB00B47E9D /* Sign Up Flow */,
 				012BC95624785FA40035F068 /* Model */,
 				01F71FB7246A5284007CEFAA /* Fonts */,
 				01F71F7F246A4FCD007CEFAA /* AppDelegate.swift */,
@@ -373,6 +467,7 @@
 			files = (
 				01F71F91246A4FCF007CEFAA /* LaunchScreen.storyboard in Resources */,
 				01879B1F2487019B00C1F8FE /* Proxima Nova Thin.otf in Resources */,
+				0146A1BA2597126C00B47E9D /* smallCollectionViewCell.xib in Resources */,
 				01F71FB9246A5343007CEFAA /* Proxima Nova Bold.otf in Resources */,
 				01BA27B92551F4BC00923E88 /* GoogleService-Info.plist in Resources */,
 				01C9538C247F5DA900723438 /* finalPheidiDataDivision.csv in Resources */,
@@ -384,6 +479,7 @@
 				01F71F8E246A4FCF007CEFAA /* Assets.xcassets in Resources */,
 				01F71F89246A4FCD007CEFAA /* Main.storyboard in Resources */,
 				01F71FBB246A5351007CEFAA /* Proxima Nova Alt Bold.otf in Resources */,
+				0146A1BF2597126C00B47E9D /* topCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,14 +591,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				01D876BD247C6C1B003B907B /* University.swift in Sources */,
+				0146A1A2259711FB00B47E9D /* landingViewController.swift in Sources */,
+				0146A1BE2597126C00B47E9D /* topCellView.swift in Sources */,
+				0146A1A0259711FB00B47E9D /* selectEventsViewController.swift in Sources */,
+				0146A1A1259711FB00B47E9D /* questionsViewController.swift in Sources */,
+				0146A1C92597127400B47E9D /* searchTableViewCell.swift in Sources */,
 				01F71FB6246A5041007CEFAA /* Colors.swift in Sources */,
 				012BC966247A27E40035F068 /* RadioButton.swift in Sources */,
+				0146A1C82597127400B47E9D /* searchTableViewController.swift in Sources */,
+				0146A1BB2597126C00B47E9D /* smallCellView.swift in Sources */,
+				0146A1BC2597126C00B47E9D /* smallRecTableViewCell.swift in Sources */,
+				0146A1BD2597126C00B47E9D /* smallCollectionViewCell.swift in Sources */,
+				0146A1AB2597124900B47E9D /* profileViewController.swift in Sources */,
+				0146A1A3259711FB00B47E9D /* eventTableViewCell.swift in Sources */,
 				012BC953247856DB0035F068 /* Person+CoreDataProperties.swift in Sources */,
+				0146A1B92597126C00B47E9D /* ViewController.swift in Sources */,
 				012BC952247856DB0035F068 /* Person+CoreDataClass.swift in Sources */,
+				0146A1CF2597127C00B47E9D /* uniInfoViewController.swift in Sources */,
 				01F71F8C246A4FCD007CEFAA /* Pheidi.xcdatamodeld in Sources */,
 				012BC95A247863BB0035F068 /* PersistenceService.swift in Sources */,
+				0146A1C12597126C00B47E9D /* topRecTableViewCell.swift in Sources */,
+				0146A1C02597126C00B47E9D /* topRecCollectionViewCell.swift in Sources */,
 				01F71F80246A4FCD007CEFAA /* AppDelegate.swift in Sources */,
 				01F71F82246A4FCD007CEFAA /* SceneDelegate.swift in Sources */,
+				0146A1AA2597124900B47E9D /* profileTableViewCell.swift in Sources */,
 				012BC95824785FC30035F068 /* Person.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
