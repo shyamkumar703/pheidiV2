@@ -1065,7 +1065,7 @@
         <!--Item-->
         <scene sceneID="R57-3r-Qsj">
             <objects>
-                <viewController id="eWW-Jm-6c8" customClass="editProfileViewController" customModule="newPheidiUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eWW-Jm-6c8" customClass="editProfileViewController" customModule="Pheidi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MLy-Iq-FmO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1431,7 +1431,7 @@
                         <outlet property="profileButton" destination="YZz-Ae-xkB" id="Xwy-fc-ihP"/>
                         <outlet property="tableView" destination="108-ds-25r" id="fG8-MC-RHJ"/>
                         <segue destination="3jV-nB-bIh" kind="presentation" identifier="showInfo" modalPresentationStyle="fullScreen" id="Ohe-QO-Vpa"/>
-                        <segue destination="eWW-Jm-6c8" kind="presentation" identifier="editProfile" modalPresentationStyle="fullScreen" id="UPU-Pr-tcd"/>
+                        <segue destination="eWW-Jm-6c8" kind="presentation" identifier="editProfile" modalPresentationStyle="fullScreen" id="yR8-Y0-iSR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="561-ad-1d9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1489,7 +1489,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Emb-Cq-pYS"/>
+        <segue reference="Ohe-QO-Vpa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
