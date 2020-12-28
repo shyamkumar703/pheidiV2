@@ -56,6 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         matchesTableView.delegate = self
         user.populateUserAtLaunch()
         University.loadMatchesMale()
+        print(user.starredUniversities)
         
         // Do any additional setup after loading the view.
 //        self.navigationController?.navigationBar.barStyle = .black

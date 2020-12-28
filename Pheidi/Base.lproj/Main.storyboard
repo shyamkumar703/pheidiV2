@@ -1320,7 +1320,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNw-4W-lsv">
-                                <rect key="frame" x="19.999999999999993" y="273" width="97.333333333333314" height="45"/>
+                                <rect key="frame" x="20.000000000000007" y="273" width="96.666666666666686" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="dr2-Pt-LzF"/>
                                 </constraints>
@@ -1329,7 +1329,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bK6-1y-cgu">
-                                <rect key="frame" x="131.33333333333334" y="273" width="141.00000000000003" height="45"/>
+                                <rect key="frame" x="130.66666666666666" y="273" width="140.99999999999997" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="A3A-ow-jhO"/>
                                     <constraint firstAttribute="height" constant="45" id="eHv-ZJ-xag"/>

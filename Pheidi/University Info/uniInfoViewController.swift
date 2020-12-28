@@ -33,6 +33,9 @@ class uniInfoViewController: UIViewController {
     @IBOutlet weak var athleticMatchLabel: UILabel!
     @IBOutlet weak var testScoreDescription: UILabel!
     
+    let alert = Bundle.main.loadNibNamed("alertView", owner: self, options: nil)?.first as? alertView
+    var heightAnchor: NSLayoutConstraint? = nil
+    
     var uni: University? = nil
     
     var academicProp: Double = 0
@@ -68,6 +71,15 @@ class uniInfoViewController: UIViewController {
         customizeTitleView()
         customizeAcademicView()
         customizeAthleticView()
+        
+        setupAlertView()
+        
+        if user.starredUniversities.contains(self.uni!.key) {
+            addButton.backgroundColor = Colors.redOpaq
+            addButton.setImage(UIImage(systemName: "minus"), for: .normal)
+            addButton.setTitle("", for: .normal)
+            addButton.tintColor = Colors.red
+        }
         
     }
     
@@ -268,14 +280,79 @@ class uniInfoViewController: UIViewController {
     }
     
     @IBAction func pressAdd(_ sender: Any) {
-        let alertView = SPAlertView(title: "Added to My List", preset: .done)
-        alertView.present()
         buttonPress(addButton) {
             //ADD LOGIC
-            if !user.starredUniversities.contains(self.uni!.key) {
-                user.starredUniversities.append(self.uni!.key)
-            }
         }
+        if !user.starredUniversities.contains(self.uni!.key) {
+            self.showAlertView(true)
+            user.starredUniversities.append(self.uni!.key)
+            self.addButton.setTitle("", for: .normal)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.addButton.alpha = 0
+            }, completion: {fin in
+                self.addButton.backgroundColor = Colors.redOpaq
+                self.addButton.setImage(UIImage(systemName: "minus"), for: .normal)
+                self.addButton.tintColor = Colors.red
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.addButton.alpha = 1
+                })
+            })
+        } else {
+            self.showAlertView(false)
+            print(user.starredUniversities)
+            user.starredUniversities = user.starredUniversities.filter {key in
+                key != self.uni!.key
+            }
+            print(user.starredUniversities)
+            self.addButton.setImage(nil, for: .normal)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.addButton.alpha = 0
+            }, completion: {fin in
+                self.addButton.backgroundColor = Colors.blueOpaq
+                self.addButton.setTitle("+", for: .normal)
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.addButton.alpha = 1
+                })
+            })
+        }
+        user.saveStarredArr(user.starredUniversities)
+    }
+    
+    func setupAlertView() {
+        let margins = view.layoutMarginsGuide
+//        alert?.setup(false)
+        alert!.alpha = 0
+        self.view.addSubview(alert!)
+        alert?.translatesAutoresizingMaskIntoConstraints = false
+        
+        alert!.topAnchor.constraint(equalTo: margins.topAnchor, constant: 20).isActive = true
+        alert!.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
+        alert!.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
+        
+        heightAnchor = alert!.heightAnchor.constraint(equalToConstant: 0)
+        heightAnchor!.isActive = true
+        
+        alert!.layer.shadowColor = UIColor.black.cgColor
+        alert!.layer.shadowOpacity = 1
+        alert!.layer.shadowOffset = .zero
+        alert!.layer.shadowRadius = 10
+    }
+    
+    func showAlertView(_ success: Bool) {
+        alert!.setup(success)
+        heightAnchor?.constant = 53
+        UIView.animate(withDuration: 0.3, animations: {
+            self.alert!.alpha = 1
+            self.alert!.layoutIfNeeded()
+        }, completion: {fin in
+            UIView.animate(withDuration: 0.3, delay: 1.3, animations: {
+                self.alert!.alpha = 0
+                self.alert!.layoutIfNeeded()
+            }, completion: {fin in
+                self.heightAnchor = self.alert!.heightAnchor.constraint(equalToConstant: 0)
+                self.heightAnchor!.isActive = true
+            })
+        })
     }
     
     @IBAction func pressContact(_ sender: Any) {
