@@ -110,4 +110,6 @@ public struct Colors {
     static let gray = UIColor(red:0.20, green:0.20, blue:0.20, alpha:0.7)
     
     static let lightGrayOpaq = UIColor(red:0.50, green:0.50, blue:0.50, alpha:0.5)
+    
+    static let lightGray = UIColor(red:0.50, green:0.50, blue:0.50, alpha:1.0)
 }

@@ -81,6 +81,10 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
             addButton.tintColor = Colors.red
         }
         
+        if uni?.email == "" {
+            contactButton.alpha = 0
+        }
+        
     }
     
     func customizeAthleticView() {
@@ -284,7 +288,7 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
             //ADD LOGIC
         }
         if !user.starredUniversities.contains(self.uni!.key) {
-            self.showAlertView(true)
+            self.showAlertView(true, "Added to My List")
             user.starredUniversities.append(self.uni!.key)
             self.addButton.setTitle("", for: .normal)
             UIView.animate(withDuration: 0.3, animations: {
@@ -298,7 +302,7 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
                 })
             })
         } else {
-            self.showAlertView(false)
+            self.showAlertView(false, "Removed from My List")
             print(user.starredUniversities)
             user.starredUniversities = user.starredUniversities.filter {key in
                 key != self.uni!.key
@@ -338,8 +342,8 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
         alert!.layer.shadowRadius = 10
     }
     
-    func showAlertView(_ success: Bool) {
-        alert!.setup(success)
+    func showAlertView(_ success: Bool, _ message: String) {
+        alert!.setup(success, message)
         heightAnchor?.constant = 53
         UIView.animate(withDuration: 0.3, animations: {
             self.alert!.alpha = 1
@@ -358,6 +362,8 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBAction func pressContact(_ sender: Any) {
         buttonPress(contactButton) {
             //ADD LOGIC
+            user.name = "Shyam Kumar"
+            self.sendEmail()
         }
     }
     
@@ -375,6 +381,46 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
                 }
             })
     }
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([uni!.email])
+            mail.setSubject("\("Shyam Kumar")- Potential Recruit")
+            mail.setMessageBody(user.makeMailString(uni!.coach), isHTML: false)
+
+            present(mail, animated: true)
+        } else {
+//            let generator = UINotificationFeedbackGenerator()
+//            generator.notificationOccurred(.error)
+            showAlertView(false, "No mail accounts available")
+        }
+    }
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+        if error == nil && result == .sent {
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+            showAlertView(true, "Email sent")
+            if !user.contactedUniversities.contains(uni!.key) {
+                user.contactedUniversities.append(uni!.key)
+                user.saveContactedArr(user.contactedUniversities)
+            }
+            return
+        } else if result == .failed {
+//            let generator = UINotificationFeedbackGenerator()
+//            generator.notificationOccurred(.error)
+//            let statusAlert = StatusAlert()
+//            statusAlert.title = "Error"
+//            statusAlert.message = "No mail accounts enabled on this device"
+//            statusAlert.image = UIImage(named: "delete")
+//            statusAlert.appearance.blurStyle = .dark
+//            statusAlert.showInKeyWindow()
+        }
+    }
+      
     /*
     // MARK: - Navigation
 

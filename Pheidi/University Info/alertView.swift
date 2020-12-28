@@ -12,7 +12,7 @@ class alertView: UIView {
     @IBOutlet weak var icon: UIButton!
     @IBOutlet weak var message: UILabel!
     
-    func setup(_ positive: Bool) {
+    func setup(_ positive: Bool, _ title: String) {
         self.frame.size.width = UIScreen.main.bounds.width - 40
         icon.backgroundColor = UIColor(red:0.39, green:0.39, blue:0.39, alpha:0.3)
         icon.layer.cornerRadius = 20
@@ -22,11 +22,11 @@ class alertView: UIView {
         if !positive {
             icon.setImage(UIImage(systemName: "xmark"), for: .normal)
             icon.tintColor = Colors.red
-            message.text = "Removed from My List"
+            message.text = title
         } else {
             icon.setImage(UIImage(systemName: "checkmark"), for: .normal)
             icon.tintColor = Colors.green
-            message.text = "Added to My List"
+            message.text = title
         }
     }
     
