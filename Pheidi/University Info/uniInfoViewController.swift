@@ -34,6 +34,9 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var testScoreDescription: UILabel!
     
     let alert = Bundle.main.loadNibNamed("alertView", owner: self, options: nil)?.first as? alertView
+    
+    var alertPresenting: Bool = false
+    
     var heightAnchor: NSLayoutConstraint? = nil
     
     var uni: University? = nil
@@ -343,6 +346,10 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func showAlertView(_ success: Bool, _ message: String) {
+        if alertPresenting {
+            return
+        }
+        alertPresenting = true
         alert!.setup(success, message)
         heightAnchor?.constant = 53
         UIView.animate(withDuration: 0.3, animations: {
@@ -355,6 +362,7 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
             }, completion: {fin in
                 self.heightAnchor = self.alert!.heightAnchor.constraint(equalToConstant: 0)
                 self.heightAnchor!.isActive = true
+                self.alertPresenting = false
             })
         })
     }
