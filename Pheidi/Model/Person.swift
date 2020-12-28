@@ -108,11 +108,15 @@ public class User {
             let coreStatArr = lastPerson.value(forKey: "currStats") as! [NSString]
             let currEvents = lastPerson.value(forKey: "currEvents") as! [NSString]
             let starredUniversities = lastPerson.value(forKey: "starredKeyArr") as! [NSString]
-            let contactedUniversities = lastPerson.value(forKey: "contactedKeyArr") as! [NSString]
+            let contactedUniversities = lastPerson.value(forKey: "contactedKeyArr") as? [NSString]
             let gender = lastPerson.value(forKey: "gender") as! String
             
             user.starredUniversities = starredUniversities as [String]
-            user.contactedUniversities = contactedUniversities as [String]
+            if contactedUniversities == nil {
+                user.contactedUniversities = []
+            } else {
+                user.contactedUniversities = contactedUniversities! as [String]
+            }
             user.name = name
             user.sat = Int(sat)
             user.act = Int(act)
