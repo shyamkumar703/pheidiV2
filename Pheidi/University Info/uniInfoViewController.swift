@@ -7,9 +7,9 @@
 
 import UIKit
 import MKRingProgressView
-import SPAlert
+import MessageUI
 
-class uniInfoViewController: UIViewController {
+class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var athleticFitView: UIView!
     @IBOutlet weak var academicFitView: UIView!
     @IBOutlet weak var markLabel: UILabel!
