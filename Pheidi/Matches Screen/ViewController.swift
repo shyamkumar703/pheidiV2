@@ -57,6 +57,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         user.populateUserAtLaunch()
         University.loadMatchesMale()
         
+        user.statArr.append("GPA")
+        user.statArr.append("SAT")
+        user.statArr.append("ACT")
+        
         // Do any additional setup after loading the view.
 //        self.navigationController?.navigationBar.barStyle = .black
 //        self.navigationController?.navigationBar.prefersLargeTitles = true

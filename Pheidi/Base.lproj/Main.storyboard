@@ -866,7 +866,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIe-Ss-ele" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3572" y="-1077"/>
+            <point key="canvasLocation" x="-4197" y="-1077"/>
         </scene>
         <!--Questions View Controller-->
         <scene sceneID="IiY-vy-AWf">
@@ -1498,7 +1498,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SVw-33-iA8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2236" y="-1077"/>
+            <point key="canvasLocation" x="-3035" y="-1077"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
