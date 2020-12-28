@@ -10,40 +10,72 @@ import UIKit
 class smallCellView: UIView {
     @IBOutlet weak var markLabel: UILabel!
     @IBOutlet weak var matchLabel: UILabel!
+    @IBOutlet weak var division: UILabel!
+    @IBOutlet weak var school: UILabel!
     
-    func setup() {
+    func setup(_ uni: University) {
+        school.adjustsFontSizeToFitWidth = true
+        school.text = uni.name
+        
         matchLabel.layer.cornerRadius = 5
         matchLabel.layer.masksToBounds = true
         
-        let randomInt = Int.random(in: 0..<3)
-        
-        switch randomInt {
-        case 0:
-            matchLabel.backgroundColor = Colors.greenOpaq
-            matchLabel.textColor = Colors.green
-            markLabel.textColor = Colors.green
-        case 1:
-            matchLabel.backgroundColor = Colors.yellowOpaq
-            matchLabel.textColor = Colors.yellow
-            markLabel.textColor = Colors.yellow
+        switch uni.division {
+        case "Division 2":
+            division.textColor = Colors.yellow
+        case "Division 3":
+            division.textColor = Colors.red
+        case "NAIA":
+            division.textColor = Colors.blue
         default:
+            division.textColor = Colors.green
+        }
+        
+        if uni.division == "" {
+            division.text = "-"
+        } else {
+            division.text = uni.division
+        }
+        
+        var markColor: UIColor? = nil
+        
+        let matchScore = Int(uni.match)
+        
+        if matchScore! < 50 {
+            markColor = Colors.red
             matchLabel.backgroundColor = Colors.redOpaq
             matchLabel.textColor = Colors.red
             markLabel.textColor = Colors.red
+        } else if matchScore! > 75 {
+            markColor = Colors.green
+            matchLabel.backgroundColor = Colors.greenOpaq
+            matchLabel.textColor = Colors.green
+            markLabel.textColor = Colors.green
+        } else {
+            markColor = Colors.yellow
+            matchLabel.backgroundColor = Colors.yellowOpaq
+            matchLabel.textColor = Colors.yellow
+            markLabel.textColor = Colors.yellow
         }
+        
+        matchLabel.text = uni.match + "%"
         
         
         let font1 = UIFont(name: "Proxima Nova Regular", size: 15)
         let font2 = UIFont(name: "Proxima Nova Bold", size: 35)
         
+        let bestEventObject = fullEventDict[uni.bestEvent]
+        let bestEvent = fullEventDict[uni.bestEvent]?.questionName ?? ""
+        let markString = bestEventObject?.createMarkString(uni.uniMarkBestEvent) ?? "-"
         
-        let attrs1 = [NSAttributedString.Key.font : font1]
         
-        let attrs2 = [NSAttributedString.Key.font : font2]
+        let attrs1 = [NSAttributedString.Key.font : font1, NSAttributedString.Key.foregroundColor : markColor]
+        
+        let attrs2 = [NSAttributedString.Key.font : font2, NSAttributedString.Key.foregroundColor : markColor]
 
-        let attributedString1 = NSMutableAttributedString(string:"9:06", attributes:attrs2 as [NSAttributedString.Key : Any])
+        let attributedString1 = NSMutableAttributedString(string:markString, attributes:attrs2 as [NSAttributedString.Key : Any])
 
-        let attributedString2 = NSMutableAttributedString(string:" 3200M", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString2 = NSMutableAttributedString(string:" " + bestEvent, attributes:attrs1 as [NSAttributedString.Key : Any])
 
         attributedString1.append(attributedString2)
         markLabel.attributedText = attributedString1

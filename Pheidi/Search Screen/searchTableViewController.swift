@@ -11,6 +11,8 @@ class searchTableViewController: UITableViewController {
     
     var schools = ["University of California, Berkeley", "Stanford University", "Harvard University", "Princeton University", "University of Oregon"]
     let searchController = UISearchController(searchResultsController: nil)
+    
+    var selectedUni: University? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,10 @@ class searchTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        University.loadMatchesMale()
     }
 
     // MARK: - Table view data source
@@ -91,10 +97,13 @@ class searchTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
+        selectedUni = uniList[indexPath.row]
         cellPress(cell!) {
-            self.performSegue(withIdentifier: "showInfo", sender: self)
-            let generator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.impactOccurred()
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "showInfo", sender: self)
+                let generator = UIImpactFeedbackGenerator(style: .heavy)
+                generator.impactOccurred()
+            }
         }
     }
     
@@ -158,5 +167,13 @@ class searchTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        guard let dest = segue.destination as? uniInfoViewController else {
+            return
+        }
+        dest.uni = selectedUni!
+    }
 
 }

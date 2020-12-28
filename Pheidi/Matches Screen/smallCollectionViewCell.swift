@@ -9,5 +9,6 @@ import UIKit
 
 class smallCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var view: UIView!
+    var uni: University? = nil
     
 }

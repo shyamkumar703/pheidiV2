@@ -19,25 +19,38 @@ class topRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topRec", for: indexPath) as? topRecCollectionViewCell {
             cell.contentView.layer.cornerRadius = 18
+            
+            cell.contentView.frame.size.width = UIScreen.main.bounds.width * 0.9
+            cell.contentView.frame.size.height = 191
+            
+            cell.view.frame.size.width = UIScreen.main.bounds.width * 0.9
+            cell.view.frame.size.height = 191
+            
             let cellView = Bundle.main.loadNibNamed("topCollectionViewCell", owner: self, options: nil)?.first as? topCellView
-            cellView?.setup()
+            cellView?.setup(matchesArr[indexPath.row])
+            cell.uni = matchesArr[indexPath.row]
+            cellView!.frame.size.width = UIScreen.main.bounds.width * 0.9
+            cellView!.frame.size.height = 191
+
             cell.view.addSubview(cellView!)
+            
+            
             return cell
         }
         return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        let cell = collectionView.cellForItem(at: indexPath) as! topRecCollectionViewCell
         UIView.animate(withDuration: 0.1,
             animations: {
-                cell!.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                cell.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
             },
             completion: { _ in
                 UIView.animate(withDuration: 0.1, animations: {
-                    cell!.transform = CGAffineTransform.identity
+                    cell.transform = CGAffineTransform.identity
                 }, completion: {_ in
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showInfo"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showInfo"), object: nil, userInfo: ["uni": cell.uni as Any])
                 })
             })
     }
@@ -52,9 +65,9 @@ class topRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = SubclassFlowLayout()
-        collectionView.isPagingEnabled = false
-        collectionView.decelerationRate = .fast //-> this for scrollView speed
-        startTimer()
+//        collectionView.decelerationRate = .fast //-> this for scrollView speed
+//        startTimer()
+        matchesArr.sort {Int($0.match)! < Int($1.match)!}
 //        collectionView.collectionViewLayout = SnapCenterLayout()
         // Initialization code
     }
@@ -91,44 +104,36 @@ class topRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         }
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        stopTimer()
-    }
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        stopTimer()
+//    }
 
 }
 
 
 class SubclassFlowLayout: UICollectionViewFlowLayout {
     let padding: CGFloat = 0
+    var iphone8 = UIScreen.main.bounds.width == 375
     override init() {
         super.init()
         self.minimumLineSpacing = 10
         self.minimumInteritemSpacing = 2
         self.scrollDirection = .horizontal
-//        self.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 200) //right = "should set for footer" (Horizental)
-        self.itemSize = CGSize(width: 374, height: 191)
+        
+        if iphone8 {
+            self.sectionInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0) //right = "should set for footer" (Horizental)
+        } else {
+            self.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) //right = "should set for footer" (Horizental)
+        }
+        self.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.9, height: 191)
 
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        var offsetAdjustment = CGFloat.greatestFiniteMagnitude
-        let leftInset = padding
-        let horizontalOffset = proposedContentOffset.x + leftInset // leftInset is for "where you want the item stop on the left"
-        let targetRect = CGRect(origin: CGPoint(x: proposedContentOffset.x, y: 0), size: self.collectionView!.bounds.size)
-
-        for layoutAttributes in super.layoutAttributesForElements(in: targetRect)! {
-            let itemOffset = layoutAttributes.frame.origin.x
-            if (abs(itemOffset - horizontalOffset) < abs(offsetAdjustment)) {
-                offsetAdjustment = itemOffset - horizontalOffset
-            }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: UIScreen.main.bounds.width * 0.9, height: 191)
         }
-
-        let targetPoint = CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
-        return targetPoint
-
-    }
 }

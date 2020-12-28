@@ -7,6 +7,7 @@
 
 import UIKit
 import MKRingProgressView
+import SPAlert
 
 class uniInfoViewController: UIViewController {
     @IBOutlet weak var athleticFitView: UIView!
@@ -24,6 +25,18 @@ class uniInfoViewController: UIViewController {
     @IBOutlet weak var matchScoreRing: RingProgressView!
     @IBOutlet weak var athleticProgressWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var academicProgressWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var matchLabel: UILabel!
+    @IBOutlet weak var school: UILabel!
+    @IBOutlet weak var city: UILabel!
+    @IBOutlet weak var division: UILabel!
+    @IBOutlet weak var academicMatchLabel: UILabel!
+    @IBOutlet weak var athleticMatchLabel: UILabel!
+    @IBOutlet weak var testScoreDescription: UILabel!
+    
+    var uni: University? = nil
+    
+    var academicProp: Double = 0
+    var athleticProp: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +53,8 @@ class uniInfoViewController: UIViewController {
         
         contactButton.layer.cornerRadius = 10
         
-        gpa.textColor = .green
-        testScore.textColor = .green
+        gpa.textColor = Colors.green
+        testScore.textColor = Colors.green
         
         closeButton.layer.cornerRadius = 20
         
@@ -51,14 +64,157 @@ class uniInfoViewController: UIViewController {
         athleticProgressWidthConstraint.constant = 0
         academicProgressWidthConstraint.constant = 0
         
+        customizeOverallMatchProgress()
+        customizeTitleView()
+        customizeAcademicView()
+        customizeAthleticView()
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {        
-        athleticProgressWidthConstraint.constant = 240
-        academicProgressWidthConstraint.constant = 150
+    func customizeAthleticView() {
+        let athleticMatch = uni?.athleticMatch
+        
+        if athleticMatch == "N/A" {
+            athleticMatchLabel.text = "-"
+        } else {
+            var athleticMatchDouble = Double(athleticMatch!)
+            athleticProp = athleticMatchDouble!
+            athleticMatchDouble = (athleticMatchDouble?.truncate(places: 2))! * 100
+            athleticMatchLabel
+                .text = String(Int(athleticMatchDouble!)) + "%"
+            
+            if athleticMatchDouble! > 75 {
+                athleticMatchLabel.textColor = Colors.green
+                frontProgressView.backgroundColor = Colors.green
+                backProgressView.backgroundColor = Colors.greenOpaq
+            } else if athleticMatchDouble! < 50 {
+                athleticMatchLabel.textColor = Colors.red
+                frontProgressView.backgroundColor = Colors.red
+                backProgressView.backgroundColor = Colors.redOpaq
+            }
+        }
+    }
+    
+    func customizeAcademicView() {
+        let gpa = uni!.gpa
+        let sat = uni?.sat
+        let act = uni?.act
+        let academicMatch = uni?.academicMatch
+        
+        if gpa == "" {
+            self.gpa.text = "-"
+        } else {
+            self.gpa.text = gpa
+        }
+        
+        if user.act != 0 {
+            testScoreDescription.text = "Average Admit ACT"
+            if act == 0 {
+                testScore.text = "-"
+            } else {
+                testScore.text = String(act!)
+            }
+        } else {
+            if sat == 0 {
+                testScore.text = "-"
+            } else {
+                testScore.text = String(sat!)
+            }
+        }
+        
+        if academicMatch == "N/A" {
+            academicMatchLabel.text = "-"
+        } else {
+            var academicMatchDouble = Double(academicMatch!)
+            if academicMatchDouble! > 1 {
+                academicMatchDouble = 1
+            }
+            academicProp = academicMatchDouble!
+            academicMatchDouble = academicMatchDouble!.truncate(places: 2) * 100
+            academicMatchLabel.text = String(Int(academicMatchDouble!)) + "%"
+            
+            if academicMatchDouble! > 75 {
+                academicMatchLabel.textColor = Colors.green
+                secondFrontProgressView.backgroundColor = Colors.green
+                secondBackProgressView.backgroundColor = Colors.greenOpaq
+            } else if academicMatchDouble! > 50 {
+                academicMatchLabel.textColor = Colors.yellow
+                secondFrontProgressView.backgroundColor = Colors.yellow
+                secondBackProgressView.backgroundColor = Colors.yellowOpaq
+            }
+        }
+    }
+    
+    func customizeTitleView() {
+        switch uni!.division {
+        case "Division 2":
+            division.textColor = Colors.yellow
+        case "Division 3":
+            division.textColor = Colors.red
+        case "NAIA":
+            division.textColor = Colors.blue
+        default:
+            print("hello")
+        }
+        
+        
+        school.adjustsFontSizeToFitWidth = true
+        school.text = uni!.name
+        if uni!.city == "" || uni!.state == "" {
+            city.text = "-"
+        } else {
+            city.text = uni!.city + ", " + uni!.state
+        }
+        if uni!.division == "" {
+            division.text = "-"
+        } else {
+            division.text = uni?.division
+        }
+    }
+    
+    func customizeOverallMatchProgress() {
+        matchLabel.text = uni!.match + "%"
+        let matchScore = Int(uni!.match)
+        
+        if matchScore == nil {
+            matchLabel.text = "-"
+            matchLabel.textColor = Colors.red
+            matchScoreRing.backgroundRingColor = Colors.redOpaq
+            matchScoreRing.endColor = Colors.red
+            matchScoreRing.startColor = Colors.red
+            return
+        }
+        
+        
+        if matchScore! < 50 {
+            matchLabel.textColor = Colors.red
+            matchScoreRing.backgroundRingColor = Colors.redOpaq
+            matchScoreRing.endColor = Colors.red
+            matchScoreRing.startColor = Colors.red
+        } else if matchScore! > 75 {
+            matchLabel.textColor = Colors.green
+            matchScoreRing.backgroundRingColor = Colors.greenOpaq
+            matchScoreRing.endColor = Colors.green
+            matchScoreRing.startColor = Colors.green
+        } else {
+            matchLabel.textColor = Colors.yellow
+            matchScoreRing.backgroundRingColor = Colors.yellowOpaq
+            matchScoreRing.endColor = Colors.yellow
+            matchScoreRing.startColor = Colors.yellow
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let backViewWidth = UIScreen.main.bounds.width - 56
+        athleticProgressWidthConstraint.constant = backViewWidth * CGFloat(athleticProp)
+        academicProgressWidthConstraint.constant = backViewWidth * CGFloat(academicProp)
         
         UIView.animate(withDuration: 1.5, delay: 0, options: .curveEaseInOut, animations: {
-            self.matchScoreRing.progress = 0.6
+            if self.uni!.match != "N/A" {
+                self.matchScoreRing.progress = Double(self.uni!.match)! / 100.0
+            } else {
+                self.matchScoreRing.progress = 0
+            }
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -67,14 +223,17 @@ class uniInfoViewController: UIViewController {
         let font1 = UIFont(name: "Proxima Nova Regular", size: 12)
         let font2 = UIFont(name: "Proxima Nova Bold", size: 28)
         
+        let bestEventObject = fullEventDict[uni!.bestEvent]
+        let bestEvent = fullEventDict[uni!.bestEvent]?.questionName ?? ""
+        let markString = bestEventObject?.createMarkString(uni!.uniMarkBestEvent) ?? "-"
         
-        let attrs1 = [NSAttributedString.Key.font : font1, NSAttributedString.Key.foregroundColor : UIColor.green]
+        let attrs1 = [NSAttributedString.Key.font : font1, NSAttributedString.Key.foregroundColor : Colors.green]
         
-        let attrs2 = [NSAttributedString.Key.font : font2, NSAttributedString.Key.foregroundColor : UIColor.green]
+        let attrs2 = [NSAttributedString.Key.font : font2, NSAttributedString.Key.foregroundColor : Colors.green]
 
-        let attributedString1 = NSMutableAttributedString(string:"9:06", attributes:attrs2 as [NSAttributedString.Key : Any])
+        let attributedString1 = NSMutableAttributedString(string:markString, attributes:attrs2 as [NSAttributedString.Key : Any])
 
-        let attributedString2 = NSMutableAttributedString(string:" 3200M", attributes:attrs1 as [NSAttributedString.Key : Any])
+        let attributedString2 = NSMutableAttributedString(string:" " + bestEvent, attributes:attrs1 as [NSAttributedString.Key : Any])
 
         attributedString1.append(attributedString2)
         markLabel.attributedText = attributedString1
@@ -109,8 +268,13 @@ class uniInfoViewController: UIViewController {
     }
     
     @IBAction func pressAdd(_ sender: Any) {
+        let alertView = SPAlertView(title: "Added to My List", preset: .done)
+        alertView.present()
         buttonPress(addButton) {
             //ADD LOGIC
+            if !user.starredUniversities.contains(self.uni!.key) {
+                user.starredUniversities.append(self.uni!.key)
+            }
         }
     }
     

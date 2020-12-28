@@ -342,6 +342,7 @@ PODS:
   - nanopb/encode (2.30906.0)
   - PromisesObjC (1.2.11)
   - QuickLayout (3.0.0)
+  - SPAlert (3.0.2)
   - SSFadingScrollView (1.1.0)
   - SwiftEntryKit (1.2.3):
     - QuickLayout (= 3.0.0)
@@ -353,6 +354,7 @@ DEPENDENCIES:
   - iOSDropDown
   - Mixpanel-swift
   - MKRingProgressView
+  - SPAlert
   - SSFadingScrollView (~> 1.1)
   - SwiftEntryKit (= 1.2.3)
 
@@ -380,6 +382,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - QuickLayout
+    - SPAlert
     - SSFadingScrollView
     - SwiftEntryKit
 
@@ -406,9 +409,10 @@ SPEC CHECKSUMS:
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
+  SPAlert: cca658fa8be444f87f8228717410d4a8786b8178
   SSFadingScrollView: ac908f565594b1faa748d2d55973f2dde919f754
   SwiftEntryKit: 340713c2e4a6662c5149629990bf1088bf5f0389
 
-PODFILE CHECKSUM: 4eacb0b6aba12058b83a74bccec576b0c160507d
+PODFILE CHECKSUM: 5a2c442b6dd0fc6d55799ceab8a245dc378addc7
 
 COCOAPODS: 1.9.1

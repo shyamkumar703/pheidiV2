@@ -192,6 +192,8 @@ public class University {
         var coach: String = ""
         var email: String = ""
         var onlyWomen: Bool = false
+        var academicMatch: String = "N/A"
+        var athleticMatch: String = "N/A"
         
         
         
@@ -795,14 +797,20 @@ public class University {
                     bestEventDict[currUni.bestEvent] = 1
                 }
             }
-            if currUni.division == "Division 3" && currUni.gpaVal != 0 {
+            
+            currUni.athleticMatch = String(bestMatch)
+            
+            if currUni.gpaVal != 0 {
                 var academicMatch: Double
                 if  user.gpa > currUni.gpaVal {
                     academicMatch = 5
                 } else {
                     academicMatch = ((currUni.gpaVal - user.gpa) / currUni.gpaVal) * 5
                 }
-                bestMatch = (academicMatch + bestMatch) / 6
+                if currUni.division == "Division 3" {
+                    bestMatch = (academicMatch + bestMatch) / 6
+                }
+                currUni.academicMatch = String(academicMatch)
             }
             
             if bestMatch > 1 {
@@ -1154,14 +1162,20 @@ public class University {
             currUni.uniMarkBestEvent = uniMarkBestEvent
             currUni.userMarkBestEvent = userMarkBestEvent
             currUni.bestEvent = bestEvent
-            if currUni.division == "Division 3" && currUni.gpaVal != 0 {
+            
+            currUni.athleticMatch = String(bestMatch)
+            
+            if currUni.gpaVal != 0 {
                 var academicMatch: Double
                 if  user.gpa > currUni.gpaVal {
                     academicMatch = 5
                 } else {
                     academicMatch = ((currUni.gpaVal - user.gpa) / currUni.gpaVal) * 5
                 }
-                bestMatch = (academicMatch + bestMatch) / 5
+                if currUni.division == "Division 3" {
+                    bestMatch = (academicMatch + bestMatch) / 5
+                }
+                currUni.academicMatch = String(academicMatch)
             }
             
             if bestMatch > 1 {

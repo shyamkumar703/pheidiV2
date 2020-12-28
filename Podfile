@@ -13,6 +13,7 @@ target 'Pheidi' do
   pod 'Firebase/Messaging'
   pod 'iOSDropDown'
   pod 'SSFadingScrollView', '~> 1.1'
+  pod 'SPAlert'
   # Pods for Pheidi
 
   target 'PheidiTests' do

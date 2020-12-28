@@ -36,6 +36,9 @@ class settingsCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UIT
                 
                 if type == .more {
                     cell.value.alpha = 0
+                } else {
+                    cell.value.alpha = 1
+                    cell.setup()
                 }
                 
                 return cell

@@ -140,6 +140,55 @@ public class User {
         }
     }
     
+    func saveUser() {
+//        newUser.setValue("", forKey: "name")
+//        newUser.setValue("", forKey: "gender")
+//        newUser.setValue("", forKey: "eventGroup")
+//        newUser.setValue(Int16(0), forKey: "sat")
+//        newUser.setValue(Int16(0), forKey: "act")
+//        newUser.setValue(Double(0), forKey: "gpa")
+//        newUser.setValue(Int16(0), forKey: "twoMile")
+//        newUser.setValue(Int16(0), forKey: "discus")
+//        newUser.setValue(Double(0), forKey: "eighthundredm")
+//        newUser.setValue(Double(0), forKey: "fourhundredm")
+//        newUser.setValue(Int16(0), forKey: "highJump")
+//        newUser.setValue(Double(0), forKey: "longJump")
+//        newUser.setValue(Double(0), forKey: "tripleJump")
+//        newUser.setValue(Int16(0), forKey: "mile")
+//        newUser.setValue(Double(0), forKey: "onehundredm")
+//        newUser.setValue(Int16(0), forKey: "shotput")
+//        newUser.setValue(Double(0), forKey: "twohundredm")
+//        newUser.setValue(Double(0), forKey: "onetenHurdles")
+//        newUser.setValue(Double(0), forKey: "threehundredHurdles")
+//        newUser.setValue(Double(0), forKey: "poleVault")
+//
+//
+//        newUser.setValue([] as [NSString], forKey: "starredKeyArr")
+        saveName(user.name)
+        saveGender(user.gender)
+        saveSAT(user.sat)
+        saveACT(user.act)
+        saveGPA(user.gpa)
+        saveTwoMile(user.twoMile)
+        
+        saveDoubleEvent("discus", user.discus)
+        saveDoubleEvent("eighthundredm", user.eighthundredm)
+        saveDoubleEvent("fourhundredm", user.fourhundredm)
+        saveDoubleEvent("highJump", user.highJump)
+        saveDoubleEvent("longJump", user.longJump)
+        saveDoubleEvent("tripleJump", user.tripleJump)
+        saveDoubleEvent("onehundredm", user.onehundredm)
+        saveDoubleEvent("shotput", user.shotput)
+        saveDoubleEvent("twohundredm", user.twohundredm)
+        saveDoubleEvent("onetenHurdles", user.onetenHurdles)
+        saveDoubleEvent("threehundredHurdles", user.threehundredHurdles)
+        saveDoubleEvent("poleVault", user.poleVault)
+        
+        saveIntEvent("mile", user.mile)
+        
+        saveCurrEvents(user.currEvents)
+    }
+    
     func starredKeyToUni() -> [University] {
         var retArr: [University] = []
         for link in starredUniversities {

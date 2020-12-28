@@ -12,6 +12,7 @@ ${BUILT_PRODUCTS_DIR}/MKRingProgressView/MKRingProgressView.framework
 ${BUILT_PRODUCTS_DIR}/Mixpanel-swift/Mixpanel.framework
 ${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
 ${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework
+${BUILT_PRODUCTS_DIR}/SPAlert/SPAlert.framework
 ${BUILT_PRODUCTS_DIR}/SSFadingScrollView/SSFadingScrollView.framework
 ${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework
 ${BUILT_PRODUCTS_DIR}/abseil/absl.framework

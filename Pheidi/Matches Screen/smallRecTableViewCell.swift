@@ -8,6 +8,10 @@
 import UIKit
 
 class smallRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var category: smallCellChoices = .moreRec
+    var dataArr: [University] = []
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -16,7 +20,8 @@ class smallRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "smallCell", for: indexPath) as? smallCollectionViewCell {
             cell.contentView.layer.cornerRadius = 12
             let cellView = Bundle.main.loadNibNamed("smallCollectionViewCell", owner: self, options: nil)?.first as? smallCellView
-            cellView?.setup()
+            cellView?.setup(dataArr[indexPath.row])
+            cell.uni = dataArr[indexPath.row]
             cell.view.addSubview(cellView!)
             return cell
         }
@@ -24,22 +29,41 @@ class smallRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        let cell = collectionView.cellForItem(at: indexPath) as! smallCollectionViewCell
         UIView.animate(withDuration: 0.1,
             animations: {
-                cell!.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                cell.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
             },
             completion: { _ in
                 UIView.animate(withDuration: 0.1, animations: {
-                    cell!.transform = CGAffineTransform.identity
+                    cell.transform = CGAffineTransform.identity
                 }, completion: {_ in
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showInfo"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showInfo"), object: nil, userInfo: ["uni": cell.uni as Any])
                 })
             })
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var title: UILabel!
+    
+    func fetchData() {
+        switch category {
+        case .top:
+            matchesArr.sort {Int($0.match)! < Int($1.match)!}
+            dataArr = matchesArr
+        case .moreRec:
+            matchesArr.sort {Int($0.match)! < Int($1.match)!}
+            dataArr = Array(matchesArr[5...])
+        case .bestFit:
+            dataArr = matchesArr.filter {uni in
+                return uni.academicMatch != "N/A" && uni.athleticMatch != "N/A" && Double(uni.academicMatch)! > 0.75 && Double(uni.athleticMatch)! > 0.75
+            }
+        case .bestState:
+            dataArr = matchesArr.filter {uni in
+                return uni.state == "CA"
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,6 +79,13 @@ class smallRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
         // Configure the view for the selected state
     }
 
+}
+
+enum smallCellChoices {
+    case top
+    case moreRec
+    case bestFit
+    case bestState
 }
 
 class SmallFlowLayout: UICollectionViewFlowLayout {

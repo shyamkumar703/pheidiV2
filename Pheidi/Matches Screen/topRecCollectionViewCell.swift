@@ -9,5 +9,6 @@ import UIKit
 
 class topRecCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var view: UIView!
+    var uni: University? = nil
     
 }

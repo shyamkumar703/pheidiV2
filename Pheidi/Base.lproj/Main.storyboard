@@ -55,9 +55,8 @@
                                                         <constraint firstAttribute="width" constant="394" id="Lgf-aa-OE5"/>
                                                         <constraint firstAttribute="height" constant="192" id="Z45-GL-lFX"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FBC-ff-8xK">
-                                                        <size key="itemSize" width="374" height="191"/>
-                                                        <size key="estimatedItemSize" width="374" height="191"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sIi-7S-WLa">
+                                                        <size key="itemSize" width="128" height="128"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -72,7 +71,7 @@
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8F-Qp-8AG">
                                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="191"/>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -619,20 +618,27 @@
                     <tabBarItem key="tabBarItem" title="Item" id="MCw-J9-LLO"/>
                     <connections>
                         <outlet property="academicFitView" destination="Lz7-oF-RWW" id="Iyd-tn-XCL"/>
+                        <outlet property="academicMatchLabel" destination="Cds-z7-kup" id="TA5-fW-fiV"/>
                         <outlet property="academicProgressWidthConstraint" destination="moJ-hM-1lX" id="fGG-s0-ps9"/>
                         <outlet property="addButton" destination="vgF-V5-F59" id="Jgz-7a-zib"/>
                         <outlet property="athleticFitView" destination="di4-SD-Ex6" id="gdZ-pA-61G"/>
+                        <outlet property="athleticMatchLabel" destination="GaK-7e-hxY" id="xim-v1-XXi"/>
                         <outlet property="athleticProgressWidthConstraint" destination="5Xf-4w-6Mf" id="RuK-4L-qOu"/>
                         <outlet property="backProgressView" destination="2eb-Ob-apx" id="u4e-QK-754"/>
+                        <outlet property="city" destination="oAf-6v-yCu" id="ehf-NZ-8k4"/>
                         <outlet property="closeButton" destination="rUb-am-rkj" id="s9h-zT-rJm"/>
                         <outlet property="contactButton" destination="rqH-E1-uAE" id="x45-FQ-3MA"/>
+                        <outlet property="division" destination="yTR-ef-Qhb" id="hN9-0e-gEV"/>
                         <outlet property="frontProgressView" destination="qDi-im-oJB" id="yPk-hi-myD"/>
                         <outlet property="gpa" destination="hIe-TT-7Na" id="3k7-Gm-mJo"/>
                         <outlet property="markLabel" destination="OdN-et-i1K" id="XWt-gA-nFF"/>
+                        <outlet property="matchLabel" destination="hVI-HU-lk7" id="k1I-mz-mWa"/>
                         <outlet property="matchScoreRing" destination="6wg-VE-srk" id="B3d-Bt-6ro"/>
+                        <outlet property="school" destination="RSE-Yy-SIu" id="vFs-bZ-4rX"/>
                         <outlet property="secondBackProgressView" destination="2pg-M1-Xob" id="crd-Sy-0eB"/>
                         <outlet property="secondFrontProgressView" destination="fwe-TC-17T" id="dI1-a4-9cC"/>
                         <outlet property="testScore" destination="ip3-JI-Bpc" id="2oL-CE-kcp"/>
+                        <outlet property="testScoreDescription" destination="BXc-1C-Pdo" id="KeJ-Ea-teq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qH-lT-D8b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1140,6 +1146,9 @@
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <connections>
+                                                                            <action selector="fieldEditingEnded:" destination="sOI-2g-ORM" eventType="editingDidEnd" id="Yir-3Q-GJ4"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                                 <constraints>
@@ -1311,7 +1320,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNw-4W-lsv">
-                                <rect key="frame" x="20.000000000000007" y="273" width="96.666666666666686" height="45"/>
+                                <rect key="frame" x="19.999999999999993" y="273" width="97.333333333333314" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="dr2-Pt-LzF"/>
                                 </constraints>
@@ -1320,7 +1329,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bK6-1y-cgu">
-                                <rect key="frame" x="130.66666666666666" y="273" width="140.99999999999997" height="45"/>
+                                <rect key="frame" x="131.33333333333334" y="273" width="141.00000000000003" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="A3A-ow-jhO"/>
                                     <constraint firstAttribute="height" constant="45" id="eHv-ZJ-xag"/>
@@ -1492,7 +1501,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Nfh-1U-56w"/>
+        <segue reference="Emb-Cq-pYS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
@@ -1503,9 +1512,6 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

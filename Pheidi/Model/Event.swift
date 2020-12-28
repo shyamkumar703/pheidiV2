@@ -25,6 +25,18 @@ class Event {
     }
     
     
+    func createMarkString(_ numMark: Any) -> String {
+        switch eventType {
+        case .feet:
+            return User.ftToString((numMark as! Double) * 12)
+        case .double:
+            return User.doubleToString(numMark as! Double)
+        case .int:
+            return User.secsToString(Int(numMark as! Double))
+        }
+    }
+    
+    
     static func populateFullEventDict() {
         for (val, key) in valKeyDict {
             if doubleEvents.contains(key) {
@@ -35,7 +47,7 @@ class Event {
                 fullEventDict[val] = Event(val, key, .int)
             }
             
-            if ftEvents.contains(key) {
+            if ftEvents.contains(val) {
                 fullEventDict[val] = Event(val, key, .feet)
             }
         }
