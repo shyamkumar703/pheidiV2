@@ -8,32 +8,61 @@
 import UIKit
 
 class profileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var dataArr: [String] = user.starredUniversities
+    var selectedUni: University? = nil
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        if myListSelected {
+            return user.starredUniversities.count
+        } else {
+            return user.contactedUniversities.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "profileList", for: indexPath) as? profileTableViewCell {
-            cell.school.text = schools[indexPath.row % 5]
+            let currSchool: University
+            if myListSelected {
+                currSchool = linkUniDict[user.starredUniversities[indexPath.row]]!
+            } else {
+                currSchool = linkUniDict[user.contactedUniversities[indexPath.row]]!
+            }
+            
+            cell.uni = currSchool
+            
+            cell.school.text = currSchool.name
+            cell.school.adjustsFontSizeToFitWidth = true
             
             cell.matchLabel.layer.cornerRadius = 5
             cell.matchLabel.layer.masksToBounds = true
+            cell.matchLabel.text = currSchool.match + "%"
             
             cell.view.layer.cornerRadius = 10
             
-            let randomInt = Int.random(in: 0..<3)
-            
-            switch randomInt {
-            case 0:
-                cell.matchLabel.backgroundColor = Colors.greenOpaq
-                cell.matchLabel.textColor = Colors.green
-            case 1:
-                cell.matchLabel.backgroundColor = Colors.yellowOpaq
-                cell.matchLabel.textColor = Colors.yellow
-            default:
+            if Int(currSchool.match)! < 50 {
                 cell.matchLabel.backgroundColor = Colors.redOpaq
                 cell.matchLabel.textColor = Colors.red
+            } else if Int(currSchool.match)! < 75 {
+                cell.matchLabel.backgroundColor = Colors.yellowOpaq
+                cell.matchLabel.textColor = Colors.yellow
+            } else {
+                cell.matchLabel.backgroundColor = Colors.greenOpaq
+                cell.matchLabel.textColor = Colors.green
             }
+            
+//            let randomInt = Int.random(in: 0..<3)
+//
+//            switch randomInt {
+//            case 0:
+//                cell.matchLabel.backgroundColor = Colors.greenOpaq
+//                cell.matchLabel.textColor = Colors.green
+//            case 1:
+//                cell.matchLabel.backgroundColor = Colors.yellowOpaq
+//                cell.matchLabel.textColor = Colors.yellow
+//            default:
+//                cell.matchLabel.backgroundColor = Colors.redOpaq
+//                cell.matchLabel.textColor = Colors.red
+//            }
             
             return cell
         }
@@ -41,8 +70,9 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        profileViewController.buttonPress(cell!) {
+        let cell = tableView.cellForRow(at: indexPath) as! profileTableViewCell
+        profileViewController.buttonPress(cell) {
+            self.selectedUni = cell.uni!
             self.performSegue(withIdentifier: "showInfo", sender: self)
             let generator = UIImpactFeedbackGenerator(style: .heavy)
             generator.impactOccurred()
@@ -54,13 +84,9 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var myList: UILabel!
     @IBOutlet weak var contacted: UILabel!
+    @IBOutlet weak var divisionLabel: UILabel!
     
     var myListSelected = true
-    
-    
-    
-    
-    var schools = ["University of California, Berkeley", "Stanford University", "Harvard University", "Princeton University", "University of Oregon"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +102,12 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         
         generateTapRecognizers()
+        
+        divisionLabel.text = user.division + " Level Recruit"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     func generateTapRecognizers() {
@@ -122,6 +154,7 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.myList.textColor = .white
                 self.contacted.textColor = Colors.lightGrayOpaq
             }, completion: {_ in
+                self.tableView.reloadData()
                 UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
                     self.tableView.alpha = 1
                 })
@@ -140,6 +173,7 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.myList.textColor = Colors.lightGrayOpaq
                 self.contacted.textColor = .white
             }, completion: {_ in
+                self.tableView.reloadData()
                 UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
                     self.tableView.alpha = 1
                 })
@@ -188,5 +222,13 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        guard let dest = segue.destination as? uniInfoViewController else {
+            return
+        }
+        dest.uni = selectedUni!
+    }
 
 }

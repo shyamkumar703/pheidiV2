@@ -49,6 +49,7 @@ public class User {
     var eventGroup: String = ""
     var gender = ""
     var starredUniversities: [String] = []
+    var contactedUniversities: [String] = []
     var division: String = ""
     var bestEventString: String = ""
     var bestEventMark: Double = 0
@@ -107,9 +108,11 @@ public class User {
             let coreStatArr = lastPerson.value(forKey: "currStats") as! [NSString]
             let currEvents = lastPerson.value(forKey: "currEvents") as! [NSString]
             let starredUniversities = lastPerson.value(forKey: "starredKeyArr") as! [NSString]
+            let contactedUniversities = lastPerson.value(forKey: "contactedKeyArr") as! [NSString]
             let gender = lastPerson.value(forKey: "gender") as! String
             
             user.starredUniversities = starredUniversities as [String]
+            user.contactedUniversities = contactedUniversities as [String]
             user.name = name
             user.sat = Int(sat)
             user.act = Int(act)
@@ -141,29 +144,6 @@ public class User {
     }
     
     func saveUser() {
-//        newUser.setValue("", forKey: "name")
-//        newUser.setValue("", forKey: "gender")
-//        newUser.setValue("", forKey: "eventGroup")
-//        newUser.setValue(Int16(0), forKey: "sat")
-//        newUser.setValue(Int16(0), forKey: "act")
-//        newUser.setValue(Double(0), forKey: "gpa")
-//        newUser.setValue(Int16(0), forKey: "twoMile")
-//        newUser.setValue(Int16(0), forKey: "discus")
-//        newUser.setValue(Double(0), forKey: "eighthundredm")
-//        newUser.setValue(Double(0), forKey: "fourhundredm")
-//        newUser.setValue(Int16(0), forKey: "highJump")
-//        newUser.setValue(Double(0), forKey: "longJump")
-//        newUser.setValue(Double(0), forKey: "tripleJump")
-//        newUser.setValue(Int16(0), forKey: "mile")
-//        newUser.setValue(Double(0), forKey: "onehundredm")
-//        newUser.setValue(Int16(0), forKey: "shotput")
-//        newUser.setValue(Double(0), forKey: "twohundredm")
-//        newUser.setValue(Double(0), forKey: "onetenHurdles")
-//        newUser.setValue(Double(0), forKey: "threehundredHurdles")
-//        newUser.setValue(Double(0), forKey: "poleVault")
-//
-//
-//        newUser.setValue([] as [NSString], forKey: "starredKeyArr")
         saveName(user.name)
         saveGender(user.gender)
         saveSAT(user.sat)
@@ -220,6 +200,20 @@ public class User {
             let result = try context.fetch(request) as! [NSManagedObject]
             let lastPerson = result.last!
             lastPerson.setValue(newArr as [NSString], forKey: "starredKeyArr")
+            try context.save()
+        } catch {
+            print("Failed")
+        }
+    }
+    
+    func saveContactedArr(_ newArr: [String]) {
+        user.contactedUniversities = newArr
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request) as! [NSManagedObject]
+            let lastPerson = result.last!
+            lastPerson.setValue(newArr as [NSString], forKey: "contactedKeyArr")
             try context.save()
         } catch {
             print("Failed")
@@ -393,6 +387,7 @@ public class User {
         
         
         newUser.setValue([] as [NSString], forKey: "starredKeyArr")
+        newUser.setValue([] as [NSString], forKey: "contactedKeyArr")
         newUser.setValue([] as [NSString], forKey: "currStats")
         newUser.setValue([] as [NSString], forKey: "currEvents")
         do {

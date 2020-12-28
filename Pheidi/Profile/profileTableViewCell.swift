@@ -12,6 +12,7 @@ class profileTableViewCell: UITableViewCell {
     @IBOutlet weak var school: UILabel!
     @IBOutlet weak var division: UILabel!
     @IBOutlet weak var matchLabel: UILabel!
+    var uni: University? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()

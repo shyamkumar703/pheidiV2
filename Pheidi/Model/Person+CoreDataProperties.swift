@@ -38,6 +38,7 @@ extension Person {
     @NSManaged public var currStats: [NSString]
     @NSManaged public var currEvents: [NSString]
     @NSManaged public var starredKeyArr: [NSString]
+    @NSManaged public var contactedKeyArr: [NSString]
     @NSManaged public var eventGroup: String
     @NSManaged public var gender: String
 }

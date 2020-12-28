@@ -1438,6 +1438,7 @@
                     <tabBarItem key="tabBarItem" title="" image="person" catalog="system" selectedImage="person.fill" id="PdF-4T-k8Y"/>
                     <connections>
                         <outlet property="contacted" destination="bK6-1y-cgu" id="VS4-Zj-P3x"/>
+                        <outlet property="divisionLabel" destination="ZUt-vJ-PQI" id="8yC-d4-tVi"/>
                         <outlet property="editProfileButton" destination="dRL-8v-o3q" id="f60-4X-4WU"/>
                         <outlet property="myList" destination="JNw-4W-lsv" id="R8I-D1-XLr"/>
                         <outlet property="profileButton" destination="YZz-Ae-xkB" id="Xwy-fc-ihP"/>
@@ -1501,7 +1502,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Emb-Cq-pYS"/>
+        <segue reference="Ohe-QO-Vpa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
