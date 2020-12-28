@@ -11,14 +11,50 @@ class searchTableViewController: UITableViewController {
     
     var schools = ["University of California, Berkeley", "Stanford University", "Harvard University", "Princeton University", "University of Oregon"]
     let searchController = UISearchController(searchResultsController: nil)
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+        let searchBarScopeIsFiltering =
+        searchController.searchBar.selectedScopeButtonIndex != 0
+        if searchBarScopeIsFiltering {
+            return true
+        }
+        return searchController.isActive &&
+        (!isSearchBarEmpty || searchBarScopeIsFiltering)
+    }
+    
+    let scopeArray = ["All", "D1", "D2", "D3", "NAIA"]
     
     var selectedUni: University? = nil
+    var filteredMatches: [University] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Search"
         navigationItem.searchController = searchController
-        searchController.searchBar.placeholder = ""
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search Universities"
+        searchController.obscuresBackgroundDuringPresentation = false
+        
+        definesPresentationContext = true
+        navigationItem.searchController = searchController
+        
+        searchController.searchBar.tintColor = Colors.blue
+                
+        searchController.searchBar.searchTextField.textColor = .white
+                
+        searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
+        searchController.searchBar.showsScopeBar = true
+        searchController.searchBar.scopeButtonTitles = scopeArray
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        var isSearchBarEmpty: Bool {
+            return searchController.searchBar.text?.isEmpty ?? true
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -27,7 +63,19 @@ class searchTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    @objc func keyBoardWillShow(notification: NSNotification) {
+        if let keyBoardSize = notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyBoardSize.height, right: 0)
+            self.tableView.contentInset = contentInsets
+        }
+    }
+
+    @objc func keyBoardWillHide(notification: NSNotification) {
+        self.tableView.contentInset = UIEdgeInsets.zero
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         University.loadMatchesMale()
     }
 
@@ -35,12 +83,21 @@ class searchTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return uniList.count
+        if isFiltering {
+            return filteredMatches.count
+        } else {
+            return uniList.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as? searchTableViewCell {
-            let currSchool = uniList[indexPath.row]
+            let currSchool: University
+            if isFiltering {
+                currSchool = filteredMatches[indexPath.row]
+            } else {
+                currSchool = uniList[indexPath.row]
+            }
             
             cell.school.text = currSchool.name
             cell.school.adjustsFontSizeToFitWidth = true
@@ -94,10 +151,44 @@ class searchTableViewController: UITableViewController {
         }
         return UITableViewCell()
     }
+    
+    func filterContentForSearchText(_ text: String, category: String) {
+        filteredMatches = []
+        filteredMatches = uniList.filter { (uni: University) -> Bool in
+        //let doesCategoryMatch = category == .all || candy.category == category
+        var categoryMatch: Bool = false
+        switch(category) {
+        case "D1":
+            categoryMatch = uni.division == "Division 1"
+        case "D2":
+            categoryMatch = uni.division == "Division 2"
+        case "D3":
+            categoryMatch = uni.division == "Division 3"
+        case "NAIA":
+            categoryMatch = uni.division == "NAIA"
+        default:
+            categoryMatch = true
+        }
+              
+        if isSearchBarEmpty {
+            return categoryMatch
+        } else {
+            let substringMatch = uni.name.lowercased()
+            .contains(text.lowercased())
+            let charMatch = characterMatch(text.uppercased(), uni.name)
+            return categoryMatch && (substringMatch || charMatch)
+            }
+        }
+        tableView.reloadData()
+    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        selectedUni = uniList[indexPath.row]
+        if isFiltering {
+            selectedUni = filteredMatches[indexPath.row]
+        } else {
+            selectedUni = uniList[indexPath.row]
+        }
         cellPress(cell!) {
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "showInfo", sender: self)
@@ -105,6 +196,15 @@ class searchTableViewController: UITableViewController {
                 generator.impactOccurred()
             }
         }
+    }
+    
+    func characterMatch(_ searchString: String, _ name: String) -> Bool {
+        for i in searchString {
+            if !name.contains(i) {
+                return false
+            }
+        }
+        return true
     }
     
     
@@ -176,4 +276,21 @@ class searchTableViewController: UITableViewController {
         dest.uni = selectedUni!
     }
 
+}
+
+extension searchTableViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    // TODO
+    let searchBar = searchController.searchBar
+    let category = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+    filterContentForSearchText(searchBar.text!, category: category)
+  }
+}
+
+extension searchTableViewController: UISearchBarDelegate {
+  func searchBar(_ searchBar: UISearchBar,
+      selectedScopeButtonIndexDidChange selectedScope: Int) {
+    let category = searchBar.scopeButtonTitles![selectedScope]
+    filterContentForSearchText(searchBar.text!, category: category)
+  }
 }
