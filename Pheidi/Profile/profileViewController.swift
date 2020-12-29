@@ -112,6 +112,8 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        nameLabel.text = user.name
+        divisionLabel.text = user.division + " Level Recruit"
     }
     
     func generateTapRecognizers() {

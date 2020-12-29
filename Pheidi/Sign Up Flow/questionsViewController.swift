@@ -27,6 +27,12 @@ class questionsViewController: UIViewController {
     var marks = false
     var lastPerson: NSManagedObject? = nil
     
+    let gpaChars: [Character] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."]
+    let testScoreChars: [Character] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+    let intEventChars: [Character] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", ":", "0"]
+    let doubleEventChars: [Character] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ".", "0"]
+    let fieldEventChars: [Character] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "-", "0"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -293,6 +299,13 @@ class questionsViewController: UIViewController {
                 } else {
                     self.skipButton.alpha = 0
                 }
+                
+                if self.eventsArr[self.index] != "" && fullEventDict[self.eventsArr[self.index]]?.eventType == .feet {
+                    self.textFieldAnswer.placeholder = "Feet-Inches"
+                } else {
+                    self.textFieldAnswer.placeholder = ""
+                }
+                
                 self.question.alpha = 1
                 
                 var answersArr = firstAnswers
@@ -314,6 +327,178 @@ class questionsViewController: UIViewController {
                 
             }, completion: nil)
         })
+    }
+    
+    func checkChangeValidity() {
+        switch question.text {
+                case "GPA":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 4)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: gpaChars)
+                case "SAT":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 4)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: testScoreChars)
+                case "ACT":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 2)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: testScoreChars)
+                case "3200M":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 5)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: intEventChars)
+                    checkLongTrackFormat(textField: textFieldAnswer)
+                case "1600M":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 5)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: intEventChars)
+                    checkLongTrackFormat(textField: textFieldAnswer)
+                case "100M":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 5)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: doubleEventChars)
+                    checkShortTrackFormat(textField: textFieldAnswer)
+                case "200M":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 5)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: doubleEventChars)
+                    checkShortTrackFormat(textField: textFieldAnswer)
+                case "400M":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 6)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: doubleEventChars)
+                    checkLongTrackFormat(textField: textFieldAnswer)
+                case "800M":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 7)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: doubleEventChars)
+                    checkLongTrackFormat(textField: textFieldAnswer)
+                case "110M Hurdles":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 5)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: doubleEventChars)
+                    checkShortTrackFormat(textField: textFieldAnswer)
+                case "300M Hurdles":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 6)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: doubleEventChars)
+                    checkLongTrackFormat(textField: textFieldAnswer)
+                case "Shotput":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 8)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: fieldEventChars)
+                    checkFieldFormat(textField: textFieldAnswer)
+                case "Discus":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 9)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: fieldEventChars)
+                    checkFieldFormat(textField: textFieldAnswer)
+                case "High Jump":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 7)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: fieldEventChars)
+                    checkFieldFormat(textField: textFieldAnswer)
+                case "Long Jump":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 8)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: fieldEventChars)
+                    checkFieldFormat(textField: textFieldAnswer)
+                case "Triple Jump":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 8)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: fieldEventChars)
+                    checkFieldFormat(textField: textFieldAnswer)
+                case "Pole Vault":
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 8)
+                    checkAllowedChars(textField: textFieldAnswer, allowedChars: fieldEventChars)
+                    checkFieldFormat(textField: textFieldAnswer)
+                default:
+                    checkMaxLength(textField: textFieldAnswer, maxLength: 9)
+                }
+    }
+    
+    func checkMaxLength(textField: UITextField!, maxLength: Int) {
+        if (textField.text!.count > maxLength) {
+            textField.deleteBackward()
+        }
+    }
+        
+    func checkAllowedChars(textField: UITextField, allowedChars: [Character]) {
+        for char in textField.text! {
+            if !(allowedChars.contains(char)) {
+                    textField.deleteBackward()
+            }
+        }
+    }
+    
+    func checkShortTrackFormat(textField: UITextField) {
+        let text: String = textField.text!
+        if !text.contains(".") {
+            if text.count > 2 {
+                textField.deleteBackward()
+            }
+        } else {
+            let charArr = Array(text)
+            let periodCount = charArr.filter{$0 == "."}.count
+            if periodCount > 1 {
+                textField.deleteBackward()
+            } else if charArr[0] == "." {
+                textField.deleteBackward()
+            }
+        }
+    }
+        
+    func checkLongTrackFormat(textField: UITextField) {
+        let text: String = textField.text!
+        if !text.contains(".") && !text.contains(":") {
+            if text.count > 2 {
+                textField.deleteBackward()
+            }
+        } else {
+            let charArr = Array(text)
+            if charArr.contains(":") {
+                let colonCount = charArr.filter{$0 == ":"}.count
+                if colonCount > 1 {
+                    textField.deleteBackward()
+                }
+                if charArr.count == 1 {
+                    textField.deleteBackward()
+                }
+                if charArr.count > 3 {
+                    if !(charArr[1] == ":" || charArr[2] == ":") {
+                        textField.deleteBackward()
+                    }
+                }
+            } else if charArr.contains(".") {
+                let periodCount = charArr.filter{$0 == "."}.count
+                if periodCount > 1 {
+                    textField.deleteBackward()
+                } else if charArr.count == 1 {
+                    textField.deleteBackward()
+                }
+            } else {
+                let charArr = Array(text)
+                if charArr.contains(":") && charArr.contains(".") {
+                    if charArr.firstIndex(of: ".")! > charArr.firstIndex(of: ":")! {
+                            textField.text = "-"
+                    }
+                }
+            }
+        }
+    }
+        
+    func checkFieldFormat(textField: UITextField) {
+        let text: String = textField.text!
+        if text.count == 1 {
+            if text.contains("-") || text.contains(".") {
+                textField.deleteBackward()
+            }
+        } else if text.count == 3 {
+            let charArr = Array(text)
+            let dashCount = charArr.filter{$0 == "-"}.count
+            let periodCount = charArr.filter{$0 == "."}.count
+            if dashCount > 1 {
+                textField.deleteBackward()
+            }
+            if periodCount > 1 {
+                textField.deleteBackward()
+            }
+        } else {
+            let charArr = Array(text)
+            if charArr.contains(":") && charArr.contains("-") {
+                if charArr.firstIndex(of: ".")! > charArr.firstIndex(of: "-")! {
+                    textField.text = "-"
+                }
+            }
+        }
+    }
+    
+    @IBAction func answerChanged(_ sender: Any) {
+        checkChangeValidity()
     }
     
 }
