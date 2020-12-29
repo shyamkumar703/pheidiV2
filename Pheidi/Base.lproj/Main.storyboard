@@ -1208,6 +1208,9 @@
                                                                             <constraint firstAttribute="width" constant="47" id="hae-fw-XkS"/>
                                                                         </constraints>
                                                                         <color key="onTintColor" red="0.37254901959999998" green="0.78823529410000004" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <connections>
+                                                                            <action selector="switchValueChanged:" destination="OEK-5w-DlP" eventType="valueChanged" id="3Qn-oc-xdn"/>
+                                                                        </connections>
                                                                     </switch>
                                                                 </subviews>
                                                                 <constraints>

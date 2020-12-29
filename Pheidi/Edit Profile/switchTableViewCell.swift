@@ -15,7 +15,15 @@ class switchTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    @IBAction func switchValueChanged(_ sender: Any) {
+        if switchView.isOn == true {
+            UserDefaults.standard.setValue(true, forKey: "emailTemplate")
+        } else {
+            UserDefaults.standard.setValue(true, forKey: "emailTemplate")
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

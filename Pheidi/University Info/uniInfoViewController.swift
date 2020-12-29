@@ -395,8 +395,11 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients([uni!.email])
-            mail.setSubject("\("Shyam Kumar")- Potential Recruit")
-            mail.setMessageBody(user.makeMailString(uni!.coach), isHTML: false)
+            mail.setSubject("\(user.name)- Potential Recruit")
+            let template = UserDefaults.standard.bool(forKey: "emailTemplate")
+            if template {
+                mail.setMessageBody(user.makeMailString(uni!.coach), isHTML: false)
+            }
 
             present(mail, animated: true)
         } else {

@@ -17,6 +17,7 @@ class landingViewController: UIViewController {
         getStartedView.layer.cornerRadius = 30
         generateTapRecognizer()
         user.createData()
+        UserDefaults.standard.setValue(true, forKey: "emailTemplate")
 
         // Do any additional setup after loading the view.
     }
