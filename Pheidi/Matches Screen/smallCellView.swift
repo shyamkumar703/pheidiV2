@@ -41,7 +41,7 @@ class smallCellView: UIView {
         
         let matchScore = Int(uni.match)
         
-        if matchScore! < 50 {
+        if matchScore ?? 0 < 50 {
             markColor = Colors.red
             matchLabel.backgroundColor = Colors.redOpaq
             matchLabel.textColor = Colors.red

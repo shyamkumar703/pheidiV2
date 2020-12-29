@@ -27,8 +27,15 @@ class topRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
             cell.view.frame.size.height = 191
             
             let cellView = Bundle.main.loadNibNamed("topCollectionViewCell", owner: self, options: nil)?.first as? topCellView
-            cellView?.setup(matchesArr[indexPath.row])
-            cell.uni = matchesArr[indexPath.row]
+            
+            if indexPath.row >= matchesArr.count {
+                let number = Int.random(in: 0...500)
+                cellView?.setup(uniList[number])
+                cell.uni = uniList[number]
+            } else {
+                cellView?.setup(matchesArr[indexPath.row])
+                cell.uni = matchesArr[indexPath.row]
+            }
             cellView!.frame.size.width = UIScreen.main.bounds.width * 0.9
             cellView!.frame.size.height = 191
 

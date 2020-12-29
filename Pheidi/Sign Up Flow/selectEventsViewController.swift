@@ -13,7 +13,7 @@ class selectEventsViewController: UIViewController, UITableViewDelegate, UITable
     
     var numSelected = 0
     
-    let eventsArr = ["100M", "200M", "400M", "800M", "1600M", "3200M", "110M Hurdles", "300M Hurdles", "Shotput", "Discus", "High Jump", "Long Jump", "Triple Jump", "Pole Vault"]
+    let eventsArr = ["100M", "200M", "400M", "800M", "1600M", "3200M", "300M Hurdles", "Shotput", "Discus", "High Jump", "Long Jump", "Triple Jump", "Pole Vault"]
     var selectedArr: [String] = []
     var questionArr: [String] = []
     

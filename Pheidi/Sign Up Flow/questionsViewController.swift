@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import CoreData
+
+
+var firstAnswers: [String] = []
+var marksAnswers: [String] = []
 
 class questionsViewController: UIViewController {
     @IBOutlet weak var question: UILabel!
@@ -14,11 +19,13 @@ class questionsViewController: UIViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var frontView: UIView!
     @IBOutlet weak var frontViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var skipButton: UIButton!
     
     var questionsArr = ["What is your first name?", "What is your last name?", "What is your GPA?", "What is your SAT?", "What is your ACT?"]
     var eventsArr = ["", "", "GPA", "SAT", "ACT"]
     var index = 0
     var marks = false
+    var lastPerson: NSManagedObject? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +54,15 @@ class questionsViewController: UIViewController {
         backView.layer.cornerRadius = 3
         
         frontViewWidth.constant = 0
+        
+        skipButton.alpha = 0
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
+        do {
+            lastPerson = (try context.fetch(request) as! [NSManagedObject]).last!
+        } catch {
+            print("Failed")
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -63,10 +79,16 @@ class questionsViewController: UIViewController {
     @objc func popToPrevious() {
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
-        saveCurrentAnswer()
+//        saveCurrentAnswer()
         self.index -= 1
         changeView()
         calculateProgressViewWidth()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if question.text == "What is your ACT?" || question.text == "What is your SAT?" {
+            skipButton.alpha = 1
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -127,25 +149,80 @@ class questionsViewController: UIViewController {
         calculateProgressViewWidth()
     }
     
+    @IBAction func skipPressed(_ sender: Any) {
+        self.index += 1
+        profileViewController.buttonPress(nextButton, completion: nil)
+        changeView()
+        calculateProgressViewWidth()
+    }
+    
+    
     func saveCurrentAnswer() {
         let currEvent: Event? = fullEventDict[eventsArr[index]]
+        if currEvent != nil {
+            if !user.statArr.contains(currEvent!.questionName) {
+                user.statArr.append(currEvent!.questionName)
+            }
+        }
+        
+        if marks {
+            if index > marksAnswers.count - 1 {
+                marksAnswers.append(textFieldAnswer.text ?? "")
+            } else {
+                marksAnswers[index] = textFieldAnswer.text ?? ""
+            }
+        } else {
+            if index > firstAnswers.count - 1 {
+                firstAnswers.append(textFieldAnswer.text ?? "")
+            } else {
+                firstAnswers[index] = textFieldAnswer.text ?? ""
+            }
+        }
+        
+        if !marks && self.index == 1 {
+            let name = firstAnswers[0] + " " + firstAnswers[1]
+            user.saveName(name)
+        }
+        
+        
         switch currEvent?.eventType {
         case .double:
             let currentDouble = User.stringToDouble(textFieldAnswer.text ?? "0")
+            if currentDouble != 0 {
+                user.currEvents.append(currEvent!.questionName)
+            }
             currEvent?.saveValueDouble(currEvent!.coreDataKey, currentDouble)
         case .int:
             let currentInt = Int(User.stringToDouble(textFieldAnswer.text ?? "0"))
+            if currentInt != 0 {
+                user.currEvents.append(currEvent!.questionName)
+            }
             currEvent?.saveValueInt(currEvent!.coreDataKey, currentInt)
         case .feet:
             let currentDouble = User.stringToFt(textFieldAnswer.text ?? "0")
+            if currentDouble != 0 {
+                user.currEvents.append(currEvent!.questionName)
+            }
             currEvent?.saveValueDouble(currEvent!.coreDataKey, currentDouble)
         default:
             return
+        }
+
+        do {
+            try context.save()
+        } catch {
+            print("Failed")
         }
     }
     
     func changeView() {
         if marks == true && self.index == -1 {
+            
+            marksAnswers = []
+            user.statArr = user.statArr.filter { stat in
+                stat == "GPA" || stat == "SAT" || stat == "ACT"
+            }
+            
             UIView.animate(withDuration: 0.3, animations: {
                 self.question.alpha = 0
                 self.textFieldAnswer.alpha = 0
@@ -167,9 +244,12 @@ class questionsViewController: UIViewController {
                 self.nextButton.alpha = 0
                 self.frontView.alpha = 0
                 self.backView.alpha = 0
-                self.navigationController?.navigationBar.alpha = 0
+//                self.navigationController?.navigationBar.alpha = 0
             }, completion: {fin in
-                self.dismiss(animated: false, completion: nil)
+//                self.dismiss(animated: false, completion: nil)
+                self.navigationController?.popToRootViewController(animated: false)
+                firstAnswers = []
+                user.statArr = []
             })
             return
         }
@@ -192,6 +272,7 @@ class questionsViewController: UIViewController {
                         tabViewController.modalPresentationStyle = .overCurrentContext
                         self.present(tabViewController, animated: false, completion: nil)
                         UserDefaults.standard.setValue(true, forKey: "finishedReg")
+                        user.saveCurrStats(user.statArr)
                     }
                     return
                 }
@@ -207,9 +288,30 @@ class questionsViewController: UIViewController {
             UIView.animate(withDuration: 0.3, delay:0, options: .curveLinear, animations: {
                 self.textFieldAnswer.text = ""
                 self.question.text  = self.questionsArr[self.index]
+                if self.question.text == "What is your SAT?" || self.question.text == "What is your ACT?" {
+                    self.skipButton.alpha = 1
+                } else {
+                    self.skipButton.alpha = 0
+                }
                 self.question.alpha = 1
-                self.nextButton.alpha = 1
+                
+                var answersArr = firstAnswers
+                if self.marks {
+                    answersArr = marksAnswers
+                }
+                if self.index < answersArr.count {
+                    self.textFieldAnswer.text = answersArr[self.index]
+                } else {
+                    self.textFieldAnswer.text = ""
+                }
+
+                
+                if self.textFieldAnswer.text != "" {
+                    self.nextButton.alpha = 1
+                }
+                
                 self.textFieldAnswer.alpha = 1
+                
             }, completion: nil)
         })
     }

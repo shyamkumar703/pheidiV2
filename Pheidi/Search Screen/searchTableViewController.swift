@@ -76,7 +76,15 @@ class searchTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        University.loadMatchesMale()
+        switch(user.gender) {
+        case "Male":
+            University.loadMatchesMale()
+        case "Female":
+            University.loadMatchesFemale()
+        default:
+            return
+        }
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source

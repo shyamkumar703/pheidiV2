@@ -64,7 +64,7 @@ class settingsCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UIT
     let youArr = [["First Name", "Shyam"], ["Last Name", "Kumar"], ["Email Template", ""]]
     let academicsArr = [["GPA", "3.90"], ["SAT", "1480"], ["ACT", "-"]]
     let athleticsArr = [["100M", "-"], ["200M", "-"], ["400M", "-"], ["800M", "-"], ["1600M", "4:20"], ["3200M", "9:16"], ["Shotput", "-"], ["Discus", "-"],
-    ["High Jump", "-"], ["Long Jump", "-"], ["Triple Jump", "-"], ["Pole Vault", "-"]]
+    ["High Jump", "-"], ["Long Jump", "-"], ["Triple Jump", "-"], ["Pole Vault", "-"], ["300M Hurdles", "-"]]
     let moreArr = [["Terms of Use", ""], ["Privacy Policy", ""], ["Help", ""]]
     
     

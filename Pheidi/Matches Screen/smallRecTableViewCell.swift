@@ -53,14 +53,33 @@ class smallRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
             dataArr = matchesArr
         case .moreRec:
             matchesArr.sort {Int($0.match)! < Int($1.match)!}
-            dataArr = Array(matchesArr[5...])
+            if matchesArr.count < 10 {
+                dataArr = uniList
+            } else {
+                dataArr = Array(matchesArr[5...])
+            }
         case .bestFit:
-            dataArr = matchesArr.filter {uni in
+            let bestFitArr = matchesArr.filter {uni in
                 return uni.academicMatch != "N/A" && uni.athleticMatch != "N/A" && Double(uni.academicMatch)! > 0.75 && Double(uni.athleticMatch)! > 0.75
             }
+            if bestFitArr.count < 5 {
+                dataArr = Array(uniList[10...])
+            } else {
+                dataArr = bestFitArr
+            }
+            
         case .bestState:
-            dataArr = matchesArr.filter {uni in
+            let stateArr = matchesArr.filter {uni in
                 return uni.state == "CA"
+            }
+            if stateArr.count < 5 {
+                dataArr = uniList.filter {uni in
+                    return uni.state == "CA"
+                }
+            } else {
+                dataArr = matchesArr.filter {uni in
+                    return uni.state == "CA"
+                }
             }
         }
     }

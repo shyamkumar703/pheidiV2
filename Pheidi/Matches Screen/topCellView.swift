@@ -40,7 +40,7 @@ class topCellView: UIView {
         
         let matchScore = Int(uni.match)
         
-        if matchScore! < 50 {
+        if matchScore ?? 0 < 50 {
             markColor = Colors.red
             progressBackView.backgroundColor = Colors.redOpaq
             progressFrontView.backgroundColor = Colors.red

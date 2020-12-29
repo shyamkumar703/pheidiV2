@@ -85,6 +85,7 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var myList: UILabel!
     @IBOutlet weak var contacted: UILabel!
     @IBOutlet weak var divisionLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
     var myListSelected = true
     
@@ -104,6 +105,9 @@ class profileViewController: UIViewController, UITableViewDelegate, UITableViewD
         generateTapRecognizers()
         
         divisionLabel.text = user.division + " Level Recruit"
+        
+        nameLabel.text = user.name
+        nameLabel.adjustsFontSizeToFitWidth = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -43,6 +43,7 @@
 		0196FC883D1C6886EA0CA158 /* Pods_PheidiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB5CBFDA439949C5ABA6B0A /* Pods_PheidiTests.framework */; };
 		01B0CCFD2599940900AB697B /* alertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01B0CCFC2599940900AB697B /* alertView.xib */; };
 		01B0CD022599951B00AB697B /* alertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B0CD012599951B00AB697B /* alertView.swift */; };
+		01B0CDD3259A81F300AB697B /* genderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B0CDD2259A81F300AB697B /* genderViewController.swift */; };
 		01BA27B92551F4BC00923E88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01BA27B82551F4BC00923E88 /* GoogleService-Info.plist */; };
 		01BA296825639B3500923E88 /* full_data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 01BA296725639B3500923E88 /* full_data.csv */; };
 		01C9538C247F5DA900723438 /* finalPheidiDataDivision.csv in Resources */ = {isa = PBXBuildFile; fileRef = 01C9538B247F5DA900723438 /* finalPheidiDataDivision.csv */; };
@@ -130,6 +131,7 @@
 		018CEF2C2597DA3C003CEE1D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		01B0CCFC2599940900AB697B /* alertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = alertView.xib; sourceTree = "<group>"; };
 		01B0CD012599951B00AB697B /* alertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertView.swift; sourceTree = "<group>"; };
+		01B0CDD2259A81F300AB697B /* genderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genderViewController.swift; sourceTree = "<group>"; };
 		01BA27B82551F4BC00923E88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01BA28362552069F00923E88 /* Pheidi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pheidi.entitlements; sourceTree = "<group>"; };
 		01BA296725639B3500923E88 /* full_data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = full_data.csv; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				0146A19D259711FB00B47E9D /* questionsViewController.swift */,
 				0146A19E259711FB00B47E9D /* landingViewController.swift */,
 				0146A19F259711FB00B47E9D /* eventTableViewCell.swift */,
+				01B0CDD2259A81F300AB697B /* genderViewController.swift */,
 			);
 			path = "Sign Up Flow";
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				0146A1A2259711FB00B47E9D /* landingViewController.swift in Sources */,
 				0146A1DA25971A7D00B47E9D /* textTableViewCell.swift in Sources */,
 				0146A1BE2597126C00B47E9D /* topCellView.swift in Sources */,
+				01B0CDD3259A81F300AB697B /* genderViewController.swift in Sources */,
 				0146A1A0259711FB00B47E9D /* selectEventsViewController.swift in Sources */,
 				0146A1A1259711FB00B47E9D /* questionsViewController.swift in Sources */,
 				0146A1C92597127400B47E9D /* searchTableViewCell.swift in Sources */,

@@ -55,11 +55,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         matchesTableView.dataSource = self
         matchesTableView.delegate = self
         user.populateUserAtLaunch()
-        University.loadMatchesMale()
+        switch(user.gender) {
+        case "Male":
+            University.loadMatchesMale()
+        case "Female":
+            University.loadMatchesFemale()
+        default:
+            return
+        }
         
-        user.statArr.append("GPA")
-        user.statArr.append("SAT")
-        user.statArr.append("ACT")
+        print(user.statArr)
         
         // Do any additional setup after loading the view.
 //        self.navigationController?.navigationBar.barStyle = .black
