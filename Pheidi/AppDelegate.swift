@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Mixpanel
 import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         Event.populateFullEventDict()
         University.createUniversityList()
+        
+        IQKeyboardManager.shared.enable = true
         
         
         if #available(iOS 10.0, *) {

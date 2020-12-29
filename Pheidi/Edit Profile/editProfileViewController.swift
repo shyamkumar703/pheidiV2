@@ -111,7 +111,6 @@ class editProfileViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     @IBAction func close(_ sender: Any) {
-        print(user.currEvents)
         let athleteEvents = user.statArr.filter {event in
             event != "GPA" && event != "SAT" && event != "ACT"
         }

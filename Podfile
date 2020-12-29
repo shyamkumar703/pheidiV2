@@ -14,6 +14,7 @@ target 'Pheidi' do
   pod 'iOSDropDown'
   pod 'SSFadingScrollView', '~> 1.1'
   pod 'SPAlert'
+  pod 'IQKeyboardManagerSwift'
   # Pods for Pheidi
 
   target 'PheidiTests' do
