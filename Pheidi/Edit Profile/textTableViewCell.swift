@@ -311,6 +311,11 @@ class textTableViewCell: UITableViewCell {
             print("whoops")
         }
         user.saveCurrStats(user.statArr)
+        let athleteEvents = user.statArr.filter {event in
+            event != "GPA" && event != "SAT" && event != "ACT"
+        }
+        user.saveCurrEvents(athleteEvents)
+        
         user.saveUser()
         user.populateUserAtLaunch()
         switch(user.gender) {
