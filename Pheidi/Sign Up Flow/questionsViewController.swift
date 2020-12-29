@@ -127,6 +127,7 @@ class questionsViewController: UIViewController {
     }
     
     @IBAction func editingChanged(_ sender: Any) {
+        checkChangeValidity()
         if textFieldAnswer.text != "" {
             UIView.animate(withDuration: 0.3, animations: {
                 self.nextButton.alpha = 1
@@ -330,7 +331,16 @@ class questionsViewController: UIViewController {
     }
     
     func checkChangeValidity() {
-        switch question.text {
+        
+        let eventType: String
+        if fullEventDict[self.eventsArr[self.index]]?.questionName != nil {
+            eventType = fullEventDict[self.eventsArr[self.index]]!.questionName
+        } else {
+            eventType = ""
+        }
+        
+        
+        switch eventType {
                 case "GPA":
                     checkMaxLength(textField: textFieldAnswer, maxLength: 4)
                     checkAllowedChars(textField: textFieldAnswer, allowedChars: gpaChars)

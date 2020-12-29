@@ -895,7 +895,6 @@
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                 <connections>
-                                    <action selector="answerChanged:" destination="eZU-8P-tIO" eventType="editingChanged" id="kbu-hm-BUV"/>
                                     <action selector="editingChanged:" destination="eZU-8P-tIO" eventType="editingChanged" id="HkM-CQ-dRf"/>
                                     <action selector="textFieldEditingBegin:" destination="eZU-8P-tIO" eventType="editingDidBegin" id="dvS-7o-1Gd"/>
                                     <action selector="textFieldEditingEnd:" destination="eZU-8P-tIO" eventType="editingDidEnd" id="9xC-ch-iGw"/>

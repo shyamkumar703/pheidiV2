@@ -399,6 +399,8 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
             let template = UserDefaults.standard.bool(forKey: "emailTemplate")
             if template {
                 mail.setMessageBody(user.makeMailString(uni!.coach), isHTML: false)
+            } else {
+                mail.setMessageBody("", isHTML: false)
             }
 
             present(mail, animated: true)

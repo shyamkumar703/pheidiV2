@@ -20,7 +20,7 @@ class switchTableViewCell: UITableViewCell {
         if switchView.isOn == true {
             UserDefaults.standard.setValue(true, forKey: "emailTemplate")
         } else {
-            UserDefaults.standard.setValue(true, forKey: "emailTemplate")
+            UserDefaults.standard.setValue(false, forKey: "emailTemplate")
         }
     }
     
