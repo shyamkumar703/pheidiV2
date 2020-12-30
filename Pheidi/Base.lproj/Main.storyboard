@@ -754,7 +754,6 @@
                     <navigationItem key="navigationItem" id="EGE-IS-HAn"/>
                     <connections>
                         <segue destination="3jV-nB-bIh" kind="presentation" identifier="showInfo" modalPresentationStyle="fullScreen" id="Nfh-1U-56w"/>
-                        <segue destination="I2E-6Q-YUd" kind="presentation" identifier="showIAP" modalPresentationStyle="fullScreen" id="C7d-pl-D6X"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcX-GC-i7d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1637,7 +1636,7 @@
         <scene sceneID="dI4-PC-YpN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Ic-bl-Hnt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="ljD-fM-W0O">
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="ljD-fM-W0O">
                         <color key="badgeColor" red="0.37254901959999998" green="0.78823529410000004" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1750,7 +1749,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Cqh-8o-DAD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I2E-6Q-YUd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="iapNav" automaticallyAdjustsScrollViewInsets="NO" id="I2E-6Q-YUd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="65t-d5-alV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

@@ -52,6 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.delegate = self
         matchesTableView.dataSource = self
         matchesTableView.delegate = self
         user.populateUserAtLaunch()
@@ -118,6 +119,16 @@ extension UILabel {
     func setSizeFont (sizeFont: CGFloat) {
         self.font =  UIFont(name: self.font.fontName, size: sizeFont)!
         self.sizeToFit()
+    }
+}
+
+extension ViewController: UITabBarControllerDelegate {
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+            //This method will be called when user changes tab.
+        let tabBarIndex = tabBarController!.selectedIndex
+        if tabBarIndex == 0 {
+                    //do your stuff
+        }
     }
 }
 
