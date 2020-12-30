@@ -805,10 +805,15 @@ public class University {
                 if  user.gpa > currUni.gpaVal {
                     academicMatch = 5
                 } else {
-                    academicMatch = ((currUni.gpaVal - user.gpa) / currUni.gpaVal) * 5
+//                    academicMatch = (currUni.gpaVal - user.gpa) / (currUni.gpaVal * 5)
+                    academicMatch = (user.gpa / currUni.gpaVal) * (1/1.2)
                 }
                 if currUni.division == "Division 3" {
-                    bestMatch = (academicMatch + bestMatch) / 6
+                    if academicMatch == 5{
+                        bestMatch = (academicMatch + bestMatch) / 6
+                    } else {
+                        bestMatch = ((5 * academicMatch) + bestMatch) / 6
+                    }
                 }
                 currUni.academicMatch = String(academicMatch)
             }
@@ -1170,10 +1175,15 @@ public class University {
                 if  user.gpa > currUni.gpaVal {
                     academicMatch = 5
                 } else {
-                    academicMatch = ((currUni.gpaVal - user.gpa) / currUni.gpaVal) * 5
+//                    academicMatch = ((currUni.gpaVal - user.gpa) / currUni.gpaVal) * 5
+                    academicMatch = (user.gpa / currUni.gpaVal) * (1/1.2)
                 }
                 if currUni.division == "Division 3" {
-                    bestMatch = (academicMatch + bestMatch) / 5
+                    if academicMatch == 5 {
+                        bestMatch = (academicMatch + bestMatch) / 6
+                    } else {
+                        bestMatch = ((5 * academicMatch) + bestMatch) / 6
+                    }
                 }
                 currUni.academicMatch = String(academicMatch)
             }

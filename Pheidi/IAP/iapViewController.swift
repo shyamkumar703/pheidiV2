@@ -172,6 +172,7 @@ extension iapViewController: SKPaymentTransactionObserver {
     
     func restorePurchases() {
         SKPaymentQueue.default().restoreCompletedTransactions()
+        self.dismiss(animated: true, completion: nil)
     }
     
     
