@@ -13,6 +13,12 @@ class switchTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        let template = UserDefaults.standard.bool(forKey: "emailTemplate")
+        if template {
+            switchView.setOn(true, animated: false)
+        } else {
+            switchView.setOn(false, animated: false)
+        }
         // Initialization code
     }
     

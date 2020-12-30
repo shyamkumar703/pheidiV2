@@ -35,6 +35,7 @@
 		0146A1D925971A7D00B47E9D /* settingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1D525971A7C00B47E9D /* settingsCollectionViewCell.swift */; };
 		0146A1DA25971A7D00B47E9D /* textTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1D625971A7C00B47E9D /* textTableViewCell.swift */; };
 		0146A1DB25971A7D00B47E9D /* switchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146A1D725971A7C00B47E9D /* switchTableViewCell.swift */; };
+		0183EB4B259BF75E00B37A45 /* iapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183EB4A259BF75E00B37A45 /* iapViewController.swift */; };
 		01879B1D2484BFD900C1F8FE /* newFullData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 01879B1C2484BFD900C1F8FE /* newFullData.csv */; };
 		01879B1F2487019B00C1F8FE /* Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01879B1E2487019B00C1F8FE /* Proxima Nova Thin.otf */; };
 		01879B212487021900C1F8FE /* Proxima Nova Alt Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01879B202487021900C1F8FE /* Proxima Nova Alt Light.otf */; };
@@ -124,6 +125,7 @@
 		0146A1D525971A7C00B47E9D /* settingsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		0146A1D625971A7C00B47E9D /* textTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textTableViewCell.swift; sourceTree = "<group>"; };
 		0146A1D725971A7C00B47E9D /* switchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = switchTableViewCell.swift; sourceTree = "<group>"; };
+		0183EB4A259BF75E00B37A45 /* iapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iapViewController.swift; sourceTree = "<group>"; };
 		01879B1C2484BFD900C1F8FE /* newFullData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = newFullData.csv; sourceTree = "<group>"; };
 		01879B1E2487019B00C1F8FE /* Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Thin.otf"; sourceTree = "<group>"; };
 		01879B202487021900C1F8FE /* Proxima Nova Alt Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Alt Light.otf"; sourceTree = "<group>"; };
@@ -284,6 +286,14 @@
 			path = "Edit Profile";
 			sourceTree = "<group>";
 		};
+		0183EB49259BF75100B37A45 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				0183EB4A259BF75E00B37A45 /* iapViewController.swift */,
+			);
+			path = IAP;
+			sourceTree = "<group>";
+		};
 		01F71F73246A4FCD007CEFAA = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				01BA28362552069F00923E88 /* Pheidi.entitlements */,
+				0183EB49259BF75100B37A45 /* IAP */,
 				0146A1D325971A7C00B47E9D /* Edit Profile */,
 				0146A1CD2597127B00B47E9D /* University Info */,
 				0146A1C52597127400B47E9D /* Search Screen */,
@@ -624,6 +635,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01D876BD247C6C1B003B907B /* University.swift in Sources */,
+				0183EB4B259BF75E00B37A45 /* iapViewController.swift in Sources */,
 				0146A1A2259711FB00B47E9D /* landingViewController.swift in Sources */,
 				0146A1DA25971A7D00B47E9D /* textTableViewCell.swift in Sources */,
 				0146A1BE2597126C00B47E9D /* topCellView.swift in Sources */,
@@ -839,7 +851,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shyam-Kumar.teamConnect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -862,7 +874,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shyam-Kumar.teamConnect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
