@@ -1758,6 +1758,27 @@
                                     <constraint firstAttribute="width" constant="240" id="Zo1-x5-OEA"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="U2F-O8-XDi">
+                                <rect key="frame" x="87" y="300" width="240" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1O-GI-BFw">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
+                                        <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="con-dl-5J1">
+                                        <rect key="frame" x="140" y="0.0" width="100" height="21"/>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
+                                        <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="AXs-6V-aPx"/>
+                                    <constraint firstAttribute="height" constant="21" id="B3g-Ky-2aJ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gEf-L7-b3C"/>
                         <color key="backgroundColor" red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
@@ -1767,6 +1788,8 @@
                             <constraint firstItem="CGK-j9-w3W" firstAttribute="centerX" secondItem="5CZ-7x-Tia" secondAttribute="centerX" id="7gB-ms-qzE"/>
                             <constraint firstItem="CGK-j9-w3W" firstAttribute="top" secondItem="ymD-J6-jHQ" secondAttribute="bottom" constant="30" id="J0x-QI-g4x"/>
                             <constraint firstItem="ymD-J6-jHQ" firstAttribute="top" secondItem="gEf-L7-b3C" secondAttribute="top" constant="30" id="TDF-3D-UOo"/>
+                            <constraint firstItem="U2F-O8-XDi" firstAttribute="leading" secondItem="CGK-j9-w3W" secondAttribute="leading" id="dFz-c3-L8B"/>
+                            <constraint firstItem="U2F-O8-XDi" firstAttribute="top" secondItem="CGK-j9-w3W" secondAttribute="bottom" constant="8" id="xp2-h3-G1W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s7f-Bs-TEP"/>
@@ -1779,7 +1802,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jUo-lc-JKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2480" y="-1086"/>
+            <point key="canvasLocation" x="-2482.608695652174" y="-1086.1607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cqh-8o-DAD">

@@ -105,7 +105,7 @@ class iapViewController: UIViewController {
     }
     
     @IBAction func restorePressed(_ sender: Any) {
-        paymentRequested()
+        restorePurchases()
     }
     
     /*

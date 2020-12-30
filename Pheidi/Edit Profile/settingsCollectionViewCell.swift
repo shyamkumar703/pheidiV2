@@ -58,10 +58,17 @@ class settingsCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if type == .more {
             let cell = tableView.cellForRow(at: indexPath) as! textTableViewCell
-//            switch cell.title {
-//            case "Terms of Use":
-//                
-//            }
+            switch cell.title.text {
+            case "Terms of Use":
+                guard let url = URL(string: "https://pheidi-privacy-policy-51.webself.net/terms-of-service") else { return }
+                UIApplication.shared.open(url)
+            case "Privacy Policy":
+                guard let url = URL(string: "https://pheidi-privacy-policy-51.webself.net/blog") else { return }
+                UIApplication.shared.open(url)
+            default:
+                guard let url = URL(string: "https://pheidi-privacy-policy-51.webself.net/support") else { return }
+                UIApplication.shared.open(url)
+            }
         }
     }
     
