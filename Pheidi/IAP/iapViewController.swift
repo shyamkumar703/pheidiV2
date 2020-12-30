@@ -13,6 +13,8 @@ class iapViewController: UIViewController {
     @IBOutlet weak var monthlyView: UIView!
     @IBOutlet weak var purchaseButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var mostPopular: UILabel!
     
     var annualSelected: Bool = true
     
@@ -25,14 +27,69 @@ class iapViewController: UIViewController {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 3.5))
         imageView.image = image
         self.navigationItem.titleView = imageView
-        
         annualView.layer.cornerRadius = 10
         annualView.layer.borderColor = Colors.blue.cgColor
         annualView.layer.borderWidth = 2
         
+        self.navigationController?.navigationItem.rightBarButtonItem?.title = "CLOSE"
+        
         monthlyView.layer.cornerRadius = 10
+        
+        purchaseButton.layer.cornerRadius = 10
+        mostPopular.layer.cornerRadius = 5
+        mostPopular.layer.masksToBounds = true
+//        closeButton.layer.cornerRadius = 20
+        
+        annualView.isUserInteractionEnabled = true
+        monthlyView.isUserInteractionEnabled = true
+        
+        let annualTap = UITapGestureRecognizer(target:self,action:#selector(self.annualTapped))
+        
+        let monthlyTap = UITapGestureRecognizer(target:self,action:#selector(self.monthlyTapped))
+        
+        annualView.addGestureRecognizer(annualTap)
+        monthlyView.addGestureRecognizer(monthlyTap)
+        
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func annualTapped() {
+        if !annualSelected {
+            annualSelected = true
+            profileViewController.buttonPress(annualView, completion: nil)
+            UIView.animate(withDuration: 0.4, animations: {
+                self.mostPopular.backgroundColor = Colors.blue
+                self.annualView.layer.borderWidth = 2
+                self.annualView.layer.borderColor = Colors.blue.cgColor
+                self.monthlyView.layer.borderWidth = 0
+                self.monthlyView.layer.borderColor = nil
+                
+                self.purchaseButton.setTitle("Get 12 Months For $23.99", for: .normal)
+            })
+        }
+    }
+    
+    @objc func monthlyTapped() {
+        if annualSelected {
+            annualSelected = false
+            profileViewController.buttonPress(self.monthlyView, completion: nil)
+            UIView.animate(withDuration: 0.4, animations: {
+                self.mostPopular.backgroundColor = Colors.lightGray
+                self.monthlyView.layer.borderColor = Colors.blue.cgColor
+                self.monthlyView.layer.borderWidth = 2
+                self.annualView.layer.borderColor = nil
+                self.annualView.layer.borderWidth = 0
+                
+                self.purchaseButton.setTitle("Get 1 Month for $3.00", for: .normal)
+            })
+        }
+        
+    }
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 

@@ -52,7 +52,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.delegate = self
         matchesTableView.dataSource = self
         matchesTableView.delegate = self
         user.populateUserAtLaunch()
@@ -91,6 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
         matchesTableView.reloadData()
+        searchTableViewController.showIAP = false
     }
     
     @objc func showInfo(_ notification: NSNotification) {
@@ -111,6 +111,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         dest.uni = selectedUni!
     }
+    
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        if item.tag == 1 {
+            print("hello")
+        }
+    }
 
 
 }
@@ -119,16 +125,6 @@ extension UILabel {
     func setSizeFont (sizeFont: CGFloat) {
         self.font =  UIFont(name: self.font.fontName, size: sizeFont)!
         self.sizeToFit()
-    }
-}
-
-extension ViewController: UITabBarControllerDelegate {
-    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-            //This method will be called when user changes tab.
-        let tabBarIndex = tabBarController!.selectedIndex
-        if tabBarIndex == 0 {
-                    //do your stuff
-        }
     }
 }
 

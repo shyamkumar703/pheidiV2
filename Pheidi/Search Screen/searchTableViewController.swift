@@ -28,6 +28,7 @@ class searchTableViewController: UITableViewController {
     
     var selectedUni: University? = nil
     var filteredMatches: [University] = []
+    static var showIAP = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +75,27 @@ class searchTableViewController: UITableViewController {
         self.tableView.contentInset = UIEdgeInsets.zero
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+//        showIAP = false
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        let pro = UserDefaults.standard.bool(forKey: "pro")
+        if !searchTableViewController.showIAP {
+            if !pro {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let nav =  storyboard.instantiateViewController(withIdentifier: "iapNav") as! UINavigationController
+                nav.modalPresentationStyle = .fullScreen
+                tabBarController?.present(nav, animated: true, completion: nil)
+                searchTableViewController.showIAP = true
+            }
+        } else {
+            if !pro {
+                tabBarController?.selectedIndex = 0
+            }
+        }
+        
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         switch(user.gender) {
         case "Male":
