@@ -878,6 +878,9 @@
                                 <state key="normal" title="Get 12 Months For $23.99">
                                     <color key="titleColor" red="0.070588235289999995" green="0.070588235289999995" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="purchasePressed:" destination="pMf-kI-MJC" eventType="touchUpInside" id="tvX-LR-Fpq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ke-0D-eLk">
                                 <rect key="frame" x="41.666666666666657" y="558" width="331" height="30"/>
@@ -888,6 +891,9 @@
                                 <state key="normal" title="RESTORE PURCHASES">
                                     <color key="titleColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="restorePressed:" destination="pMf-kI-MJC" eventType="touchUpInside" id="QB8-HV-aMJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOST POPULAR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGO-ig-0Fi">
                                 <rect key="frame" x="62" y="320" width="125" height="20"/>

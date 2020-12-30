@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class iapViewController: UIViewController {
     @IBOutlet weak var annualView: UIView!
@@ -17,6 +18,7 @@ class iapViewController: UIViewController {
     @IBOutlet weak var mostPopular: UILabel!
     
     var annualSelected: Bool = true
+    var selectedProductIdentifier = "com.pheidi.pheidiProYearly"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,7 @@ class iapViewController: UIViewController {
         purchaseButton.layer.cornerRadius = 10
         mostPopular.layer.cornerRadius = 5
         mostPopular.layer.masksToBounds = true
+        mostPopular.textColor = .black
 //        closeButton.layer.cornerRadius = 20
         
         annualView.isUserInteractionEnabled = true
@@ -50,6 +53,7 @@ class iapViewController: UIViewController {
         annualView.addGestureRecognizer(annualTap)
         monthlyView.addGestureRecognizer(monthlyTap)
         
+        SKPaymentQueue.default().add(self)
         
 
         // Do any additional setup after loading the view.
@@ -58,6 +62,7 @@ class iapViewController: UIViewController {
     @objc func annualTapped() {
         if !annualSelected {
             annualSelected = true
+            selectedProductIdentifier = "com.pheidi.pheidiProYearly"
             profileViewController.buttonPress(annualView, completion: nil)
             UIView.animate(withDuration: 0.4, animations: {
                 self.mostPopular.backgroundColor = Colors.blue
@@ -73,6 +78,7 @@ class iapViewController: UIViewController {
     
     @objc func monthlyTapped() {
         if annualSelected {
+            selectedProductIdentifier = "com.Pheidi.pheidiPro"
             annualSelected = false
             profileViewController.buttonPress(self.monthlyView, completion: nil)
             UIView.animate(withDuration: 0.4, animations: {
@@ -92,7 +98,15 @@ class iapViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    
+    @IBAction func purchasePressed(_ sender: Any) {
+        paymentRequested()
+    }
+    
+    @IBAction func restorePressed(_ sender: Any) {
+        paymentRequested()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -103,4 +117,61 @@ class iapViewController: UIViewController {
     }
     */
 
+}
+
+extension iapViewController: SKPaymentTransactionObserver {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            if transaction.transactionState == .purchased {
+                //if item has been purchased
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+                print("Transaction Successful")
+                queue.finishTransaction(transaction)
+                UserDefaults.standard.set(true, forKey: "pro")
+                
+
+                SKStoreReviewController.requestReview()
+                
+            } else if transaction.transactionState == .failed {
+                
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.error)
+                
+                print("Transaction Failed")
+                queue.finishTransaction(transaction)
+
+                
+            } else if transaction.transactionState == .restored {
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+                UserDefaults.standard.set(true, forKey: "pro")
+                print("Restored")
+                
+
+                SKStoreReviewController.requestReview()
+            }
+        }
+    }
+    
+    func paymentRequested() {
+        if SKPaymentQueue.canMakePayments() {
+            let paymentRequest = SKMutablePayment()
+            paymentRequest.productIdentifier = selectedProductIdentifier
+            SKPaymentQueue.default().add(paymentRequest)
+        } else {
+            print("User unable to make payments")
+            
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func restorePurchases() {
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
+    
+    
 }
