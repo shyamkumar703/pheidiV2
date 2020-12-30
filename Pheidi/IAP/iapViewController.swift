@@ -100,6 +100,7 @@ class iapViewController: UIViewController {
     
     
     @IBAction func purchasePressed(_ sender: Any) {
+        profileViewController.buttonPress(purchaseButton, completion: nil)
         paymentRequested()
     }
     

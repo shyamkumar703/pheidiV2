@@ -55,6 +55,16 @@ class settingsCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UIT
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if type == .more {
+            let cell = tableView.cellForRow(at: indexPath) as! textTableViewCell
+//            switch cell.title {
+//            case "Terms of Use":
+//                
+//            }
+        }
+    }
+    
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var tableView: UITableView!
     

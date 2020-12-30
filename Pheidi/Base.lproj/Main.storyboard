@@ -1760,7 +1760,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gEf-L7-b3C"/>
-                        <color key="backgroundColor" red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ymD-J6-jHQ" firstAttribute="leading" secondItem="gEf-L7-b3C" secondAttribute="leading" id="3Up-ut-4EJ"/>
                             <constraint firstItem="ymD-J6-jHQ" firstAttribute="trailing" secondItem="gEf-L7-b3C" secondAttribute="trailing" id="55H-Mx-7Xq"/>
