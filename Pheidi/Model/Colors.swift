@@ -194,6 +194,7 @@ public class University {
         var onlyWomen: Bool = false
         var academicMatch: String = "N/A"
         var athleticMatch: String = "N/A"
+        var prestige: Int = 0
         
         
         
@@ -806,7 +807,13 @@ public class University {
                     academicMatch = 5
                 } else {
 //                    academicMatch = (currUni.gpaVal - user.gpa) / (currUni.gpaVal * 5)
-                    academicMatch = (user.gpa / currUni.gpaVal) * (1/1.2)
+//                    academicMatch = (user.gpa / currUni.gpaVal) * (1/1.2)
+                    let ratio = (user.gpa/currUni.gpaVal) - 0.625
+                    if ratio < 0 {
+                        academicMatch = 0
+                    } else {
+                        academicMatch = pow(256, ratio) / pow(256, 0.375)
+                    }
                 }
                 if currUni.division == "Division 3" {
                     if academicMatch == 5{
@@ -1176,7 +1183,14 @@ public class University {
                     academicMatch = 5
                 } else {
 //                    academicMatch = ((currUni.gpaVal - user.gpa) / currUni.gpaVal) * 5
-                    academicMatch = (user.gpa / currUni.gpaVal) * (1/1.2)
+//                    academicMatch = (user.gpa / currUni.gpaVal) * (1/1.2)
+                    
+                    let ratio = (user.gpa/currUni.gpaVal) - 0.625
+                    if ratio < 0 {
+                        academicMatch = 0
+                    } else {
+                        academicMatch = pow(256, ratio) / pow(256, 0.375)
+                    }
                 }
                 if currUni.division == "Division 3" {
                     if academicMatch == 5 {

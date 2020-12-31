@@ -17,13 +17,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var selectedUni: University? = nil
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 && !ipodTouch {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "topRecommendations", for: indexPath) as? topRecTableViewCell {
-                cell.collectionView.reloadData()
+                cell.fetchData()
                 return cell
             }
         } else {
@@ -63,8 +63,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         default:
             return
         }
-        
-        print(user.statArr)
         
         // Do any additional setup after loading the view.
 //        self.navigationController?.navigationBar.barStyle = .black

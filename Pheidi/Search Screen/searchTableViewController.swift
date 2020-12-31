@@ -105,6 +105,21 @@ class searchTableViewController: UITableViewController {
         default:
             return
         }
+        
+        let noneMatches = uniList.filter {uni in
+            uni.match == "N/A"
+        }
+        
+        uniList = uniList.filter {uni in
+            uni.match != "N/A"
+        }
+        
+        uniList.sort {
+            Int($0.match)! > Int($1.match)!
+        }
+        
+        uniList = uniList + noneMatches
+        
         tableView.reloadData()
     }
 
@@ -208,6 +223,7 @@ class searchTableViewController: UITableViewController {
             return categoryMatch && (substringMatch || charMatch)
             }
         }
+        
         tableView.reloadData()
     }
 

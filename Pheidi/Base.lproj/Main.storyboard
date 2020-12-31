@@ -1795,6 +1795,7 @@
                     <navigationItem key="navigationItem" id="s7f-Bs-TEP"/>
                     <connections>
                         <outlet property="femaleButton" destination="YOo-7U-o9I" id="Bnj-C4-lDU"/>
+                        <outlet property="labelStackView" destination="U2F-O8-XDi" id="Os4-dG-AiS"/>
                         <outlet property="maleButton" destination="3xy-t1-cwv" id="aBl-GB-jkx"/>
                         <outlet property="question" destination="ymD-J6-jHQ" id="mlP-Bz-McK"/>
                         <segue destination="eZU-8P-tIO" kind="show" identifier="showQuestions" animates="NO" id="Bn1-Lx-Oct"/>

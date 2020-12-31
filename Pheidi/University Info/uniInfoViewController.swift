@@ -235,7 +235,11 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
                 self.matchScoreRing.progress = 0
             }
             self.view.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: {fin in
+            if self.uni!.lowData {
+                self.showAlertView(false, "Low Data")
+            }
+        })
     }
     
     func createMarkField() {
@@ -356,7 +360,7 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
             self.alert!.alpha = 1
             self.alert!.layoutIfNeeded()
         }, completion: {fin in
-            UIView.animate(withDuration: 0.3, delay: 1.3, animations: {
+            UIView.animate(withDuration: 0.3, delay: 1.7, animations: {
                 self.alert!.alpha = 0
                 self.alert!.layoutIfNeeded()
             }, completion: {fin in
@@ -370,7 +374,6 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBAction func pressContact(_ sender: Any) {
         buttonPress(contactButton) {
             //ADD LOGIC
-            user.name = "Shyam Kumar"
             self.sendEmail()
         }
     }
@@ -392,6 +395,7 @@ class uniInfoViewController: UIViewController, MFMailComposeViewControllerDelega
     
     func sendEmail() {
         if MFMailComposeViewController.canSendMail() {
+            print(user.name)
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients([uni!.email])

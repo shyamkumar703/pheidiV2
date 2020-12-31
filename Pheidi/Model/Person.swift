@@ -25,6 +25,8 @@ let academicArr: [String] = ["GPA", "SAT", "ACT"]
 let valKeyDict: [String: String] = ["SAT": "sat", "ACT": "act", "GPA": "gpa",
                                     "3200M": "twoMile", "Discus": "discus", "800M": "eighthundredm", "400M": "fourhundredm", "High Jump": "highJump", "Long Jump": "longJump", "Triple Jump": "tripleJump", "1600M": "mile", "100M": "onehundredm", "200M": "twohundredm", "Shotput": "shotput", "110M Hurdles": "onetenHurdles", "300M Hurdles": "threehundredHurdles", "Pole Vault": "poleVault"]
 
+let power5: [String] = ["Boston College", "Clemson University", "Duke University", "Florida State University", "Georgia Tech", "University of Louisville", "University of Miami", "University of North Carolina-Chapel Hill", "NC State University", "University of Pittsburgh", "Syracuse University", "University of Virginia", "Virginia Tech", "Wake Forest University", "University of Notre Dame", "University of Illinois", "Indiana University", "University of Iowa", "University of Maryland", "University of Michigan", "Michigan State University", "University of Nebraska", "Northwestern University", "Ohio State University", "Penn State University", "Purdue University", "Rutgers University", "University of Wisconsin", "Baylor University", "Iowa State University", "University of Kansas", "Kansas State University", "University of Oklahoma", "Oklahoma State University", "Texas Christian University (TCU)", "University of Texas", "Texas Tech University", "West Virginia University", "University of Arizona", "Arizona State University", "University of California", "UCLA", "University of Colorado", "University of Oregon", "Oregon State University", "University of Southern California", "Stanford University", "University of Utah", "University of Washington", "Washington State University", "University of Alabama", "University of Arkansas", "Auburn University", "University of Florida", "University of Georgia", "University of Kentucky", "Louisiana State University (LSU)", "University of Mississippi", "University of South Carolina", "University of Tennessee", "Texas A&M University", "Vanderbilt University"]
+
 public class User {
     var name: String = ""
     var sat : Int = 0
@@ -62,6 +64,64 @@ public class User {
         } else {
             return User.secsToString(Int(bestEventMark))
         }
+    }
+    
+    func getRecommendationsArray(_ matchThreshold: Int) -> [University] {
+        var recommendedArr = uniList.filter({uni in
+            uni.gpaVal != 0 && uni.match != "N/A" && uni.uniMarkBestEvent != 0
+        })
+        
+        recommendedArr = recommendedArr.sorted(by: {
+            if $0.bestEvent == $1.bestEvent {
+                let bestEvent = $0.bestEvent
+                if fullEventDict[bestEvent]?.eventType == .feet {
+                    return $0.uniMarkBestEvent > $1.uniMarkBestEvent
+                } else {
+                    return $0.uniMarkBestEvent < $1.uniMarkBestEvent
+                }
+            }
+            return true
+        })
+        
+        var retRec: [University] = []
+        
+        for uni in recommendedArr {
+            let uniMatch = Int(uni.match)!
+            if uniMatch >= matchThreshold {
+                retRec.append(uni)
+                calculatePrestige(uni)
+            }
+        }
+        
+        if retRec.count < 10 {
+            return getRecommendationsArray(matchThreshold - 10)
+        }
+        
+        retRec = retRec.sorted(by: {
+            $0.prestige > $1.prestige
+        })
+        
+        
+        return Array(retRec.prefix(10))
+        
+        
+    }
+    
+    func calculatePrestige(_ uni: University) {
+        var prestige = 0
+        if uni.gpaVal > user.gpa {
+            prestige += 1
+        }
+        if uni.division == "Division 1" {
+            prestige += 1
+        }
+        if uni.accepRate != 0 && uni.accepRate < 50 {
+            prestige += 1
+        }
+        if power5.contains(uni.name) {
+            prestige += 2
+        }
+        uni.prestige = prestige
     }
     
     

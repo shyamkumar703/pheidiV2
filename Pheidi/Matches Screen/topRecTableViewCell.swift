@@ -11,6 +11,7 @@ class topRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     
     var currCell = 0
     var numCells = 5
+    var dataArr = user.getRecommendationsArray(70)
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
@@ -28,14 +29,16 @@ class topRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
             
             let cellView = Bundle.main.loadNibNamed("topCollectionViewCell", owner: self, options: nil)?.first as? topCellView
             
-            if indexPath.row >= matchesArr.count {
-                let number = Int.random(in: 0...500)
-                cellView?.setup(uniList[number])
-                cell.uni = uniList[number]
-            } else {
-                cellView?.setup(matchesArr[indexPath.row])
-                cell.uni = matchesArr[indexPath.row]
-            }
+//            if indexPath.row >= matchesArr.count {
+//                let number = Int.random(in: 0...500)
+//                cellView?.setup(uniList[number])
+//                cell.uni = uniList[number]
+//            } else {
+//                cellView?.setup(matchesArr[indexPath.row])
+//                cell.uni = matchesArr[indexPath.row]
+//            }
+            cellView?.setup(dataArr[indexPath.row])
+            cell.uni = dataArr[indexPath.row]
             cellView!.frame.size.width = UIScreen.main.bounds.width * 0.9
             cellView!.frame.size.height = 191
 
@@ -77,6 +80,10 @@ class topRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         matchesArr.sort {Int($0.match)! < Int($1.match)!}
 //        collectionView.collectionViewLayout = SnapCenterLayout()
         // Initialization code
+    }
+    
+    func fetchData() {
+        dataArr = user.getRecommendationsArray(70)
     }
     
 

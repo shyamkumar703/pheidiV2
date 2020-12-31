@@ -49,15 +49,9 @@ class smallRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     func fetchData() {
         switch category {
         case .top:
-            matchesArr.sort {Int($0.match)! < Int($1.match)!}
-            dataArr = matchesArr
+            dataArr = Array(user.getRecommendationsArray(70)[0...4])
         case .moreRec:
-            matchesArr.sort {Int($0.match)! < Int($1.match)!}
-            if matchesArr.count < 10 {
-                dataArr = uniList
-            } else {
-                dataArr = Array(matchesArr[5...])
-            }
+            dataArr = Array(user.getRecommendationsArray(70)[5...9])
         case .bestFit:
             let bestFitArr = matchesArr.filter {uni in
                 return uni.academicMatch != "N/A" && uni.athleticMatch != "N/A" && Double(uni.academicMatch)! > 0.75 && Double(uni.athleticMatch)! > 0.75
@@ -67,6 +61,14 @@ class smallRecTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
             } else {
                 dataArr = bestFitArr
             }
+            
+            dataArr = dataArr.sorted(by: {
+                if $0.prestige != 0 && $1.prestige != 0 {
+                    return $0.prestige > $1.prestige
+                } else {
+                    return false
+                }
+            })
             
         case .bestState:
             let stateArr = matchesArr.filter {uni in

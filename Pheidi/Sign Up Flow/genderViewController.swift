@@ -12,6 +12,7 @@ class genderViewController: UIViewController {
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
+    @IBOutlet weak var labelStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class genderViewController: UIViewController {
         maleButton.alpha = 1
         femaleButton.alpha = 1
         question.alpha = 1
+        labelStackView.alpha = 1
     }
     
     
@@ -66,6 +68,7 @@ class genderViewController: UIViewController {
             self.question.alpha = 0
             self.maleButton.alpha = 0
             self.femaleButton.alpha = 0
+            self.labelStackView.alpha = 0
         }, completion: {fin in
             self.performSegue(withIdentifier: "showQuestions", sender: self)
         })
@@ -79,6 +82,7 @@ class genderViewController: UIViewController {
             self.question.alpha = 0
             self.maleButton.alpha = 0
             self.femaleButton.alpha = 0
+            self.labelStackView.alpha = 0
         }, completion: {fin in
             self.performSegue(withIdentifier: "showQuestions", sender: self)
         })
